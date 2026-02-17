@@ -16,10 +16,10 @@
 
         /* Sessões */
         section {
-            min-height: 60vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -34,41 +34,51 @@
 
         /* Hero */
         #hero {
-            background: linear-gradient(135deg, #151616, #4f8cff);
+            background: linear-gradient(135deg, #151616, #2261d6);
             color: white;
             height: 100vh;
         }
+        
+        #hero h1,
+        #hero p {
+            animation: slideUpFadeIn 2.5s ease forwards;
+        }
+        
+        #hero p {
+            animation-delay: 0.5s;
+        }
+        
         .section-title {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 20px;
         }
 
-        #sobre{
-            height: 100vh;
+        #sobre {
+            min-height: auto;
         }
 
         .btn-circle {
-    width: 60px;
-    height: 60px;
-    padding: 0;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-circle:hover {
-    transform: translateY(5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-}
-.scroll-down svg {
-    animation: bounce 2s infinite;
-    color: #0d6efd; /* cor azul do Bootstrap */
-}
-#servicos {
-    height: 100vh;
-}
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-circle:hover {
+            transform: translateY(5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .scroll-down svg {
+            animation: bounce 2s infinite;
+            color: #0d6efd; /* cor azul do Bootstrap */
+        }
+        #servicos {
+            min-height: auto;
+        }
 
 /* =====================
    AJUSTES PARA MOBILE
@@ -98,7 +108,7 @@
     /* HERO */
     #hero {
         height: 100vh;
-        padding-top: 80px;
+      
     }
 
     #hero h1 {
@@ -166,6 +176,7 @@
 /* Ajustes EXTRA para telas muito pequenas */
 @media (max-width: 480px) {
 
+
     #hero h1 {
         font-size: 1.7rem;
     }
@@ -226,6 +237,230 @@
     }
 }
 
+/* Estilos para as abas de preços */
+.nav-tabs {
+    border-bottom: 2px solid #0d6efd;
+    gap: 10px;
+}
+
+.nav-tabs .nav-link {
+    color: #666;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0d6efd;
+    border-bottom-color: #0d6efd;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd;
+    background-color: transparent;
+    border-bottom-color: #0d6efd;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding: 40px 0;
+}
+
+.tab-pane {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo - Abas em telas pequenas */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .card-price {
+        margin: 20px 0;
+    }
+
+    .tab-content {
+        padding: 20px 0;
+    }
+}
+
+/* Botão Flutuante */
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.floating-button:hover {
+    background-color: #0b5ed7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+}
+
+.floating-button svg {
+    width: 30px;
+    height: 30px;
+    color: white;
+    stroke: white;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+}
+
+.floating-button.active svg {
+    transform: rotate(45deg);
+}
+
+.floating-menu {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 998;
+}
+
+.floating-social {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+    transform-origin: bottom right;
+}
+
+.floating-social.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.floating-social svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.floating-social:hover {
+    transform: scale(1.1);
+}
+.floating-social.whatsapp {
+    background-color: #25D366;
+    animation-delay: 0.05s;
+    bottom: 80px;
+    right: 0;
+}
+
+.floating-social.whatsapp svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+.floating-social.instagram {
+    background-color: #E1306C;
+    animation-delay: 0.1s;
+    bottom: 140px;
+    right: 0;
+}
+
+.floating-social.linkedin {
+    background-color: #0077B5;
+    animation-delay: 0.15s;
+    bottom: 200px;
+    right: 0;
+}
+
+.floating-social.tiktok {
+    background-color: #000000;
+    animation-delay: 0.2s;
+    bottom: 260px;
+    right: 0;
+}
+
+.floating-social:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .floating-button {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .floating-button svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .floating-social {
+        width: 45px;
+        height: 45px;
+    }
+
+    .floating-social.whatsapp {
+        bottom: 70px;
+    }
+
+    .floating-social.instagram {
+        bottom: 120px;
+    }
+
+    .floating-social.linkedin {
+        bottom: 170px;
+    }
+
+    .floating-social.tiktok {
+        bottom: 220px;
+    }
+}
+
 
     </style>
 </head>
@@ -252,7 +487,7 @@
 <!-- Hero -->
 <section class="text-center" id="hero">
     <div class="container">
-        <h1 class="display-4">Bem-vindo à Fluxxo Soluções</h1>
+        <h1 class="display-4">Fluxxo Soluções</h1>
         <p class="lead">Soluções digitais personalizadas para sua empresa crescer com eficiência.</p>
     </div>
     <!-- Indicador para rolar -->
@@ -266,7 +501,7 @@
 </section>
 
 <!-- Sobre a Empresa -->
-<section id="sobre" style="background-color: #f5f5f5;">
+<section id="sobre" style="background-color: #f5f5f5; padding: 20px 20px; height: 100vh;">
     <div class="container py-5">
         <div class="row align-items-center">
             <!-- Coluna do Texto -->
@@ -309,75 +544,137 @@
 </section>
 
 <!-- Serviços -->
-<section id="servicos" style="background-color: #f8f9fa; padding: 80px 0;">
+<section id="servicos" style="background-color: #f8f9fa; padding: 80px 20px;">
     <div class="container">
         <h2 class="section-title text-center mb-5">Nossos Serviços</h2>
 
-        <!-- Parte 1: O que fazemos -->
-        <h3 class="text-center mb-4">O que fazemos?</h3>
-        <div class="row justify-content-center g-4 mb-5">
-            <!-- Card Planilhas Personalizadas -->
-            <div class="col-md-4 fade-left">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-           
-                     <h5 class="card-title mb-2">Planilhas Personalizadas</h5>
-                    <p class="card-text">Planilhas financeiras, de controle de vendas e gestão administrativa totalmente personalizadas para sua empresa.</p>
-                </div>
+        <!-- Parágrafo Introdutório -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <p class="lead text-secondary mb-0">
+                    Ajudamos pequenas e médias empresas a organizarem seus processos, aumentarem produtividade e ganharem mais controle através de soluções digitais personalizadas.
+                </p>
             </div>
+        </div>
 
-            <!-- Card Desenvolvimento Web -->
-            <div class="col-md-4 fade-right">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h5 class="card-title mb-2">Sites</h5>
-                    <p class="card-text">Criação de sites responsivos e modernos, otimizados para performance e presença online profissional.</p>
+        <!-- Parte 1: Como ajudamos sua empresa -->
+        <div style="margin-top: 80px; margin-bottom: 80px;">
+            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Como ajudamos sua empresa a crescer</h3>
+            <div class="row justify-content-center g-4 mb-5">
+                <!-- Card 1: Controle sem Caos -->
+                <div class="col-md-4 fade-left">
+                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
+                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Controle sem Caos</h5>
+                        <p class="card-text" style="font-size: 1.1rem;"><strong>Menos retrabalho, mais organização</strong></p>
+                        <p class="card-text text-secondary">Planilhas e sistemas que centralizam suas informações, eliminam erros manuais e dão visibilidade total dos seus processos financeiros e operacionais.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Card Sistemas Personalizados -->
-            <div class="col-md-4 fade-left">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h5 class="card-title mb-2">Sistemas Personalizados</h5>
-                    <p class="card-text">ERP, CRM e sistemas sob medida para otimizar processos internos e aumentar a produtividade da sua empresa.</p>
+                <!-- Card 2: Sites que Vendem -->
+                <div class="col-md-4 fade-right">
+                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
+                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Sites que Convertem</h5>
+                        <p class="card-text" style="font-size: 1.1rem;"><strong>Mais clientes, mais vendas</strong></p>
+                        <p class="card-text text-secondary">Sites rápidos, estratégicos e otimizados para converter visitantes em oportunidades reais. Sua presença online trabalhando para gerar receita.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sistemas que Escalam -->
+                <div class="col-md-4 fade-left">
+                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
+                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Sistemas que Escalam</h5>
+                        <p class="card-text" style="font-size: 1.1rem;"><strong>Crescimento sem limites</strong></p>
+                        <p class="card-text text-secondary">ERP, CRM e sistemas personalizados que crescem com sua empresa. Automação que multiplica produtividade sem multiplicar o trabalho manual.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Parte 2: Sistemas já criados -->
-        <h3 class="text-center mb-4">O que já criamos?</h3>
-        <div class="row justify-content-center g-4 mb-4">
-            <!-- Card Borderôs -->
-            <div class="col-md-4 fade-right">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h5 class="card-title mb-2">Sistema de Borderôs</h5>
-                    <p class="card-text">Controle completo de Borderôs, com cadastro de boletos, contas a pagar e receber, cálculo de valores e geração de relatórios em PDF e Excel.</p>
+        <!-- Parte 2: Resultados que entregamos -->
+        <div style="margin-top: 80px; margin-bottom: 80px;">
+            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Resultados que já entregamos</h3>
+            <div class="row justify-content-center g-4 mb-5">
+                <!-- Card Borderôs -->
+                <div class="col-md-4 fade-right">
+                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
+                         style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-2">Sistema de Borderôs</h5>
+                        <p class="card-text text-secondary">Controle automático de boletos, contas a pagar/receber e geração de relatórios. Clientes reduzem 80% do tempo administrativo.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Card Orçamentos -->
-            <div class="col-md-4 fade-left">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h5 class="card-title mb-2">Sistema de Orçamentos</h5>
-                    <p class="card-text">Geração e gestão de orçamentos, controle de clientes, produtos e serviços em um sistema prático e funcional.</p>
+                <!-- Card Orçamentos -->
+                <div class="col-md-4 fade-left">
+                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
+                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-2">Sistema de Orçamentos</h5>
+                        <p class="card-text text-secondary">Geração rápida de orçamentos, rastreamento de leads e análise de conversão. Empresas aumentam taxa de fechamento de vendas.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-left">
+                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
+                         style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
+                        <h5 class="card-title mb-2">Planilhas Estratégicas</h5>
+                        <p class="card-text text-secondary">Sistemas de controle financeiro, vendas e estoque. Empresas ganham visibilidade em tempo real do seu negócio.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-md-4 fade-left">
-                <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                     style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h5 class="card-title mb-2">Planilhas Personalizadas</h5>
-                    <p class="card-text">Diversas planilhas que estão ajudando empresas, em uma melhor administração.</p>
+        </div>
+
+        <!-- Números/Provas Sociais -->
+        <div style="margin-top: 80px; margin-bottom: 80px;">
+            <div class="row justify-content-center g-4 mb-5">
+                <div class="col-md-2 text-center">
+                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
+                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">30+</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">Empresas atendidas</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
+                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">120+</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">Soluções criadas</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
+                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">100%</h3>
+                        <p style="font-size: 0.95rem; margin: 0;">Personalizado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Por que escolher a gente -->
+        <div style="background-color: #ffffff; padding: 60px; border-radius: 10px; margin: 80px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Por que escolher a Fluxxo Soluções?</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row g-5">
+                        <div class="col-md-4 text-center">
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">💬 Atendimento Direto</p>
+                            <p class="text-secondary">Sem intermediários. Você fala direto com quem vai entregar sua solução.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">⚙️ 100% Personalizado</p>
+                            <p class="text-secondary">Nada engessado. Cada solução é desenvolvida para suas necessidades reais.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">⚡ Entrega Rápida</p>
+                            <p class="text-secondary">Começamos rápido. Suporte pós-projeto incluído em tudo que fazemos.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="text-center mt-5">
-            <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalContato">
-                Entre em Contato
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalContato" style="padding: 12px 40px; font-weight: 600;">
+                Solicitar Orçamento
             </button>
         </div>
     </div>
@@ -388,71 +685,181 @@
     <div class="container">
         <h2 class="section-title text-center mb-5">Planos e Preços</h2>
 
-        <div class="row g-4 justify-content-center">
+        <!-- Abas de Navegação -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="precosTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-planilhas" data-bs-toggle="tab" data-bs-target="#planilhas" type="button" role="tab">
+                    Planilhas Personalizadas
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-sites" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab">
+                    Sites Profissionais
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-sistemas" data-bs-toggle="tab" data-bs-target="#sistemas" type="button" role="tab">
+                    Sistemas Personalizados
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-manutencao" data-bs-toggle="tab" data-bs-target="#manutencao" type="button" role="tab">
+                    Manutenção de Sites
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-limpeza" data-bs-toggle="tab" data-bs-target="#limpeza" type="button" role="tab">
+                    Limpeza de Computadores
+                </button>
+            </li>
+        </ul>
 
-            <!-- Planilhas -->
-            <div class="col-md-3">
-                <div class="card card-price text-center shadow-sm border-0 h-100">
-                    <div class="card-body p-4">
-                        <h5 class="mb-3">Planilhas Personalizadas</h5>
-                        <h3 class="text-primary mb-2">R$ 40,00</h3>
-                        <p class="text-muted mb-4">a partir de</p>
-                        <button class="btn btn-outline-primary w-100"
-                            data-bs-toggle="modal" data-bs-target="#modalContato">
-                            Solicitar
-                        </button>
+        <!-- Conteúdo das Abas -->
+        <div class="tab-content" id="precosTabContent">
+            
+            <!-- Aba Planilhas -->
+            <div class="tab-pane fade show active" id="planilhas" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-price text-center shadow-sm border-0">
+                            <div class="card-body p-5">
+                                <h5 class="mb-4">Planilhas Personalizadas</h5>
+                                <h2 class="text-primary mb-2">R$ 40,00</h2>
+                                <p class="text-muted mb-4">a partir de</p>
+                                <p class="text-secondary mb-4">
+                                    Planilhas financeiras, de controle de vendas e gestão administrativa totalmente personalizadas para sua empresa.
+                                </p>
+                                <ul class="list-unstyled mb-4 text-start">
+                                    <li class="mb-2">✓ Customização completa</li>
+                                    <li class="mb-2">✓ Fórmulas automáticas</li>
+                                    <li class="mb-2">✓ Gráficos e relatórios</li>
+                                    <li class="mb-2">✓ Suporte inicial</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100"
+                                    data-bs-toggle="modal" data-bs-target="#modalContato">
+                                    Solicitar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sites -->
-            <div class="col-md-3">
-                <div class="card card-price text-center shadow-sm border-0 h-100 destaque">
-                    <div class="card-body p-4">
-                        <h5 class="mb-3">Sites Profissionais</h5>
-                        <h3 class="text-primary mb-2">R$ 300,00</h3>
-                        <p class="text-muted mb-4">a partir de</p>
-                        <button class="btn btn-primary w-100"
-                            data-bs-toggle="modal" data-bs-target="#modalContato">
-                            Solicitar
-                        </button>
+            <!-- Aba Sites -->
+            <div class="tab-pane fade" id="sites" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-price text-center shadow-sm border-0 destaque">
+                            <div class="card-body p-5">
+                                <h5 class="mb-4">Sites Profissionais</h5>
+                                <h2 class="text-primary mb-2">R$ 300,00</h2>
+                                <p class="text-muted mb-4">a partir de</p>
+                                <p class="text-secondary mb-4">
+                                    Criação de sites responsivos e modernos, otimizados para performance e presença online profissional.
+                                </p>
+                                <ul class="list-unstyled mb-4 text-start">
+                                    <li class="mb-2">✓ Design responsivo</li>
+                                    <li class="mb-2">✓ Otimizado para SEO</li>
+                                    <li class="mb-2">✓ Velocidade garantida</li>
+                                    <li class="mb-2">✓ Suporte de 30 dias</li>
+                                </ul>
+                                <button class="btn btn-primary w-100"
+                                    data-bs-toggle="modal" data-bs-target="#modalContato">
+                                    Solicitar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sistemas -->
-            <div class="col-md-3">
-                <div class="card card-price text-center shadow-sm border-0 h-100">
-                    <div class="card-body p-4">
-                        <h5 class="mb-3">Sistemas Personalizados</h5>
-                        <h3 class="text-primary mb-2">R$ 1.000,00</h3>
-                        <p class="text-muted mb-4">a partir de</p>
-                        <button class="btn btn-outline-primary w-100"
-                            data-bs-toggle="modal" data-bs-target="#modalContato">
-                            Solicitar
-                        </button>
+            <!-- Aba Sistemas -->
+            <div class="tab-pane fade" id="sistemas" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-price text-center shadow-sm border-0">
+                            <div class="card-body p-5">
+                                <h5 class="mb-4">Sistemas Personalizados</h5>
+                                <h2 class="text-primary mb-2">R$ 1.000,00</h2>
+                                <p class="text-muted mb-4">a partir de</p>
+                                <p class="text-secondary mb-4">
+                                    ERP, CRM e sistemas sob medida para otimizar processos internos e aumentar a produtividade da sua empresa.
+                                </p>
+                                <ul class="list-unstyled mb-4 text-start">
+                                    <li class="mb-2">✓ Arquitetura escalável</li>
+                                    <li class="mb-2">✓ Banco de dados robusto</li>
+                                    <li class="mb-2">✓ Interface intuitiva</li>
+                                    <li class="mb-2">✓ Treinamento incluído</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100"
+                                    data-bs-toggle="modal" data-bs-target="#modalContato">
+                                    Solicitar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Manutenção -->
-            <div class="col-md-3">
-                <div class="card card-price text-center shadow-sm border-0 h-100">
-                    <div class="card-body p-4">
-                        <h5 class="mb-3">Manutenção de Sites</h5>
-                        <h3 class="text-primary mb-2">R$ 120,00</h3>
-                        <p class="text-muted mb-4">mensal</p>
-                        <button class="btn btn-outline-primary w-100"
-                            data-bs-toggle="modal" data-bs-target="#modalContato">
-                            Contratar
-                        </button>
+            <!-- Aba Manutenção -->
+            <div class="tab-pane fade" id="manutencao" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-price text-center shadow-sm border-0">
+                            <div class="card-body p-5">
+                                <h5 class="mb-4">Manutenção de Sites</h5>
+                                <h2 class="text-primary mb-2">R$ 120,00</h2>
+                                <p class="text-muted mb-4">mensal</p>
+                                <p class="text-secondary mb-4">
+                                    Monitore e mantenha seu site sempre atualizado, seguro e funcionando perfeitamente.
+                                </p>
+                                <ul class="list-unstyled mb-4 text-start">
+                                    <li class="mb-2">✓ Atualizações de segurança</li>
+                                    <li class="mb-2">✓ Backup automático</li>
+                                    <li class="mb-2">✓ Monitoramento 24/7</li>
+                                    <li class="mb-2">✓ Suporte técnico contínuo</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100"
+                                    data-bs-toggle="modal" data-bs-target="#modalContato">
+                                    Contratar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Limpeza de Computadores -->
+            <div class="tab-pane fade" id="limpeza" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-price text-center shadow-sm border-0">
+                            <div class="card-body p-5">
+                                <h5 class="mb-4">Limpeza de Computadores</h5>
+                                <h2 class="text-primary mb-2">R$ 150,00</h2>
+                                <p class="text-muted mb-4">única</p>
+                                <p class="text-secondary mb-4">
+                                    Serviço de limpeza física e otimização de desempenho para computadores, garantindo maior velocidade e vida útil dos equipamentos.
+                                </p>
+                                <ul class="list-unstyled mb-4 text-start">
+                                    <li class="mb-2">✓ Limpeza física de componentes internos</li>
+                                    <li class="mb-2">✓ Otimização de desempenho</li>
+                                    <li class="mb-2">✓ Atualização de drivers</li>
+                                    <li class="mb-2">✓ Formatação do sistema operacional</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100"
+                                    data-bs-toggle="modal" data-bs-target="#modalContato">
+                                    Contratar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <p class="text-center text-muted mt-4">
+        <p class="text-center text-muted mt-5">
             * Valores podem variar conforme a complexidade do projeto.
         </p>
     </div>
@@ -598,5 +1005,64 @@ $(document).ready(function() {
     gtag('config', 'G-P94CZE0YZT');
 });
 </script>
-</body>
+
+<!-- Botão Flutuante -->
+<div class="floating-menu">
+    <div class="floating-social whatsapp" title="WhatsApp" onclick="window.open('https://wa.me/5583999921413', '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.6915026,12.4744748 C16.4744748,12.1379033 16.1272231,12.0152284 15.8156424,12.0152284 C15.4393281,12.0152284 15.1272231,12.1379033 14.9109131,12.4744748 C14.6564928,12.9341563 14.1219765,13.9245283 13.9051228,14.2460905 C13.8915662,14.2743725 13.8667115,14.3002166 13.837788,14.3235161 C13.5314604,14.6271332 13.1700788,14.9140349 12.6563168,14.9140349 L12.6517973,14.9140349 C12.208004,14.9140349 11.7506197,14.7586765 11.4051228,14.5024922 L11.2957855,14.4115601 C9.88808315,13.209105 8.71269227,11.5765034 8.16592039,9.50039247 C7.99212963,8.84677296 7.95492891,8.36789799 7.95492891,7.94834254 C7.95492891,7.30376878 8.12039559,6.68308185 8.42721295,6.12236042 C8.80779339,5.38390428 9.49607417,4.92612633 10.2862462,4.92612633 C10.5455243,4.92612633 10.7968586,4.99021836 11.0346269,5.11496169 C11.2577922,5.23371034 11.4393281,5.42607721 11.5511751,5.68514289 L12.0907161,7.00326957 C12.1775838,7.23869461 12.1594218,7.50214067 12.0409423,7.72216224 C11.9900484,7.8160921 11.9271043,7.90318217 11.8524549,7.97892944 C11.6934695,8.13873898 11.5455243,8.30143996 11.5455243,8.53686499 C11.5455243,8.95603635 12.0384027,9.82175902 12.5588277,10.6295314 C13.3906263,11.8707574 14.3476637,12.5139968 14.9928778,12.8032349 C15.1624395,12.8902918 15.3166914,12.9561394 15.4555809,13.0007725 C15.6897476,13.0761288 15.9195843,13.0561085 16.1282265,12.9440516 L16.1358219,12.9396999 C16.3399371,12.8273427 16.5028906,12.6520333 16.5825924,12.4228882 L16.6915026,12.4744748 Z M12.0604706,2 C6.58524169,2 2.22662934,6.3586334 2.22662934,11.8338624 C2.22662934,13.5995731 2.71215321,15.2560337 3.6112389,16.6677396 L2.55315649,20.6551734 L6.85882174,19.6299754 C8.22727567,20.4507536 9.8074461,20.9052589 11.5014443,20.9052589 C17.6274352,20.9052589 22.2542857,16.531903 22.2542857,11.0566741 C22.2542857,8.45558705 21.2707943,6.06923853 19.5,4.31597206 C17.7292057,2.56270559 15.3136317,1.5 12.6517232,1.5 L12.0604706,2 Z M12.0604706,2 C6.58524169,2 2.22662934,6.3586334 2.22662934,11.8338624 C2.22662934,13.5995731 2.71215321,15.2560337 3.6112389,16.6677396 L2.55315649,20.6551734 L6.85882174,19.6299754 C8.22727567,20.4507536 9.8074461,20.9052589 11.5014443,20.9052589 C17.6274352,20.9052589 22.2542857,16.531903 22.2542857,11.0566741 C22.2542857,8.45558705 21.2707943,6.06923853 19.5,4.31597206 C17.7292057,2.56270559 15.3136317,1.5 12.6517232,1.5 L12.0604706,2 Z"/>
+        </svg>
+    </div>
+
+    
+    <div class="floating-social instagram" title="Instagram" onclick="window.open('https://www.instagram.com/fluxxosolucoes', '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.756 0 8.331.012 7.052.069 2.635.278.278 2.579.059 7.052.012 8.331 0 8.756 0 12s.012 3.669.069 4.948c.219 4.467 2.576 6.771 7.052 6.98 1.279.057 1.704.069 4.948.069s3.669-.012 4.948-.069c4.47-.216 6.462-2.553 6.612-7.095.057-1.279.069-1.704.069-4.929s-.012-3.669-.069-4.948c-.149-4.57-2.147-6.61-7.1-6.81-1.279-.058-1.704-.07-4.949-.07zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm4.29-10.646a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/>
+        </svg>
+    </div>
+    
+    <div class="floating-social linkedin" title="LinkedIn" onclick="window.open('https://www.linkedin.com/company/fluxxosolucoes', '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+        </svg>
+    </div>
+    
+    <div class="floating-social tiktok" title="TikTok" onclick="window.open('https://www.tiktok.com/@fluxxosolucoes', '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.86 2.86 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.96-.1z"/>
+        </svg>
+    </div>
+</div>
+
+<button class="floating-button" id="floatingBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+</button>
+
+<script>
+// Botão flutuante
+const floatingBtn = document.getElementById('floatingBtn');
+const floatingSocials = document.querySelectorAll('.floating-social');
+
+if (floatingBtn) {
+    floatingBtn.addEventListener('click', function() {
+        floatingBtn.classList.toggle('active');
+        floatingSocials.forEach(social => {
+            social.classList.toggle('show');
+        });
+    });
+    
+    // Fecha o menu ao clicar em um botão social
+    floatingSocials.forEach(social => {
+        social.addEventListener('click', function() {
+            floatingBtn.classList.remove('active');
+            floatingSocials.forEach(s => s.classList.remove('show'));
+        });
+    });
+}
+</script>
+
+    </body>
 </html>
