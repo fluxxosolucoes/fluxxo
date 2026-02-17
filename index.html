@@ -53,7 +53,8 @@
             font-weight: 600;
             margin-bottom: 20px;
         }
-
+        
+        
         #sobre {
             min-height: auto;
         }
@@ -78,6 +79,47 @@
         }
         #servicos {
             min-height: auto;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+        }
+
+        .nav-link:hover {
+            color: #e0e0e0 !important;
+        }
+
+        /* Links em preto por padrão */
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0d6efd;
+        }
+
+        /* Exceção: Links da navbar permanecem brancos */
+        .navbar a {
+            color: #ffffff !important;
+        }
+
+        .navbar a:hover {
+            color: #e0e0e0 !important;
+        }
+
+        /* Exceção: Links da footer permanecem brancos */
+        footer a {
+            color: #ffffff !important;
+        }
+
+        footer a:hover {
+            color: #e0e0e0 !important;
         }
 
 /* =====================
@@ -241,10 +283,11 @@
 .nav-tabs {
     border-bottom: 2px solid #0d6efd;
     gap: 10px;
+    color: #121111 ;
 }
 
 .nav-tabs .nav-link {
-    color: #666;
+    color: #000000 !important;
     border: none;
     border-bottom: 3px solid transparent;
     font-weight: 500;
@@ -253,12 +296,12 @@
 }
 
 .nav-tabs .nav-link:hover {
-    color: #0d6efd;
+    color: #000000 !important;
     border-bottom-color: #0d6efd;
 }
 
 .nav-tabs .nav-link.active {
-    color: #0d6efd;
+    color: #000000 !important;
     background-color: transparent;
     border-bottom-color: #0d6efd;
     font-weight: 600;
@@ -467,18 +510,18 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg " style="background-color: transparent; padding: 15px 20px; position: absolute; width: 100%; z-index: 1000; color:#ffffff">
     <div class="container">
         <a class="navbar-brand" href="index.html">Fluxxo Soluções</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto" >
                 
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-menu"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-menu"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-menu"><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
         </div>
     </div>
@@ -656,15 +699,15 @@
                 <div class="col-md-10">
                     <div class="row g-5">
                         <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">💬 Atendimento Direto</p>
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;"> Atendimento Direto</p>
                             <p class="text-secondary">Sem intermediários. Você fala direto com quem vai entregar sua solução.</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">⚙️ 100% Personalizado</p>
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">100% Personalizado</p>
                             <p class="text-secondary">Nada engessado. Cada solução é desenvolvida para suas necessidades reais.</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">⚡ Entrega Rápida</p>
+                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;"> Entrega Rápida</p>
                             <p class="text-secondary">Começamos rápido. Suporte pós-projeto incluído em tudo que fazemos.</p>
                         </div>
                     </div>
@@ -673,7 +716,7 @@
         </div>
 
         <div class="text-center mt-5">
-            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalContato" style="padding: 12px 40px; font-weight: 600;">
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalContato" style="padding: 10px 10px; font-weight: 400;">
                 Solicitar Orçamento
             </button>
         </div>
