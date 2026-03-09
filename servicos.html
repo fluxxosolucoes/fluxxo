@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="./img/logo.svg">
+<title>Serviços - Fluxxo Soluções</title>
+ <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P94CZE0YZT"></script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+font-family:'Lato',sans-serif;
+}
+</style>
+
+</head>
+
+<body class="bg-[#061C3F] text-white">
+
+<!-- NAVBAR -->
+<!-- NAVBAR -->
+<header class="bg-[#0A2A66]/90 backdrop-blur-md fixed w-full z-50">
+
+<div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+
+<div class="flex items-center space-x-3">
+<img src="./img/logo.svg" class="h-8 md:h-10">
+<span class="font-bold text-lg md:text-xl text-[#4DB8FF]">Fluxxo Soluções</span>
+</div>
+
+<button id="menuBtn" class="md:hidden text-2xl">
+☰
+</button>
+
+<nav class="hidden md:flex space-x-8 text-sm md:text-base">
+<a href="index.html" class="hover:text-[#4DB8FF]">Home</a>
+<a href="servicos.html" class="text-[#4DB8FF] font-semibold">Serviços</a>
+<a href="sobre.html" class="hover:text-[#4DB8FF]">Sobre</a>
+<a href="projetos.html" class="hover:text-[#4DB8FF]">Projetos</a>
+</nav>
+
+</div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden md:hidden bg-[#0A2A66] text-center py-4 space-y-4">
+<a href="index.html" class="block">Home</a>
+<a href="servicos.html" class="block">Serviços</a>
+<a href="sobre.html" class="block">Sobre</a>
+<a href="projetos.html" class="block">Projetos</a>
+</div>
+
+</header>
+
+<!-- SEÇÃO PRINCIPAL -->
+<section class="pt-32 md:pt-40 pb-20 md:pb-24 max-w-6xl mx-auto px-4 md:px-6">
+
+<h1 class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12" data-aos="fade-up">
+Serviços & Planos
+</h1>
+
+
+<!-- BOTÕES ABAS -->
+<div class="flex justify-center mb-12 md:mb-16">
+
+<div class="bg-[#0A2A66] p-2 rounded-xl flex space-x-2">
+
+<button onclick="mostrarAba('servicos')" id="btnServicos"
+class="px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold bg-[#4DB8FF] text-black transition">
+
+Serviços
+
+</button>
+
+<button onclick="mostrarAba('planos')" id="btnPlanos"
+class="px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition">
+
+Planos
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SERVIÇOS -->
+<div id="servicos" class="aba">
+
+<div class="grid gap-8 md:grid-cols-3">
+
+
+<!-- CARD -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border border-[#4DB8FF]/20 hover:scale-105 transition">
+
+<i class="fas fa-chart-line text-4xl text-[#4DB8FF] mb-4"></i>
+
+<h2 class="text-xl md:text-2xl font-bold mb-4">
+Planilhas Profissionais
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Automação, dashboards e controle financeiro completo.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-6 text-sm">
+<li>✔ Controle financeiro</li>
+<li>✔ Relatórios automáticos</li>
+<li>✔ Estoque</li>
+<li>✔ Dashboard visual</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+
+<!-- CARD -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border border-[#4DB8FF]/20 hover:scale-105 transition">
+
+<i class="fas fa-globe text-4xl text-[#4DB8FF] mb-4"></i>
+
+<h2 class="text-xl md:text-2xl font-bold mb-4">
+Criação de Sites
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Sites modernos, rápidos e responsivos.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-6 text-sm">
+<li>✔ Institucional</li>
+<li>✔ Landing page</li>
+<li>✔ Design moderno</li>
+<li>✔ SEO básico</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+
+<!-- CARD -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border border-[#4DB8FF]/20 hover:scale-105 transition">
+
+<i class="fas fa-laptop-medical text-4xl text-[#4DB8FF] mb-4"></i>
+
+<h2 class="text-xl md:text-2xl font-bold mb-4">
+Manutenção
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Otimização, formatação e suporte técnico.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-6 text-sm">
+<li>✔ Formatação</li>
+<li>✔ Instalação Windows</li>
+<li>✔ Office</li>
+<li>✔ Limpeza interna</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PLANOS -->
+<div id="planos" class="aba hidden">
+
+<p class="text-center text-gray-400 mb-10">
+Fidelidade mínima de 10 meses.
+</p>
+
+<div class="grid gap-8 md:grid-cols-3">
+
+
+<!-- BÁSICO -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border border-[#4DB8FF]/20 hover:scale-105 transition">
+
+<h3 class="text-xl font-bold text-[#4DB8FF]">
+Plano Básico
+</h3>
+
+<p class="mb-4">
+Empreendedor Start
+</p>
+
+<p class="text-3xl font-bold mb-6">
+R$80<span class="text-base text-gray-400">/mês</span>
+</p>
+
+<ul class="text-gray-300 space-y-2 mb-6 text-sm">
+<li>✔ Site até 3 páginas</li>
+<li>✔ Landing page</li>
+<li>✔ Planilha financeira</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+
+<!-- PRO -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border-2 border-[#4DB8FF] hover:scale-105 transition relative">
+
+<span class="absolute top-4 right-4 bg-[#4DB8FF] text-black text-xs px-3 py-1 rounded-full font-bold">
+MAIS ESCOLHIDO
+</span>
+
+<h3 class="text-xl font-bold text-[#4DB8FF]">
+Plano Pró
+</h3>
+
+<p class="mb-4">
+Negócio Estruturado
+</p>
+
+<p class="text-3xl font-bold mb-6">
+R$100<span class="text-base text-gray-400">/mês</span>
+</p>
+
+<ul class="text-gray-300 space-y-2 mb-6 text-sm">
+<li>✔ Site até 5 páginas</li>
+<li>✔ 2 Planilhas</li>
+<li>✔ Ajustes mensais</li>
+<li>✔ Relatório básico</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+
+<!-- 360 -->
+<div class="bg-[#0A2A66] rounded-2xl flex flex-col h-full p-8 border border-[#4DB8FF]/20 hover:scale-105 transition">
+
+<h3 class="text-xl font-bold text-[#4DB8FF]">
+Plano Presença 360
+</h3>
+
+<p class="mb-4">
+Crescimento Completo
+</p>
+
+<p class="text-3xl font-bold mb-6">
+R$150<span class="text-base text-gray-400">/mês</span>
+</p>
+
+<ul class="text-gray-300 space-y-2 mb-6 text-sm">
+<li>✔ Site completo</li>
+<li>✔ Integrações</li>
+<li>✔ SEO</li>
+<li>✔ Até 20 ajustes</li>
+<li>✔ Suporte contínuo</li>
+</ul>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="mt-auto block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+
+<i class="fab fa-whatsapp mr-2"></i> Saiba Mais
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer class="bg-[#0B1320] text-gray-300 py-20 border-t border-[#4DB8FF]/10">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+
+<!-- LOGO -->
+<div class="flex flex-col items-center md:items-start">
+<img src="./img/logo.svg" class="h-20 mb-4">
+
+<p class="text-gray-400 text-sm max-w-xs">
+Soluções digitais para empresas que querem crescer com organização, tecnologia e presença online.
+</p>
+</div>
+
+<!-- REDES -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">
+Redes Sociais
+</h3>
+
+<div class="flex justify-center md:justify-start space-x-6 text-2xl">
+
+<a href="https://www.instagram.com/fluxxosolucoes/" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.linkedin.com/company/fluxxosolucoes/" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+</div>
+
+<!-- LOCALIZAÇÃO -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">
+Atendimento
+</h3>
+
+<p class="text-gray-400 text-sm mb-2">
+João Pessoa - PB
+</p>
+
+<p class="text-gray-400 text-sm">
+Atendimento online para todo o Brasil
+</p>
+
+</div>
+
+</div>
+
+<!-- DIVISÃO -->
+<div class="border-t border-[#4DB8FF]/10 mt-16 pt-8 text-center">
+
+<p class="text-gray-500 text-sm">
+© 2026 Fluxxo Soluções • Todos os direitos reservados
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+AOS.init();
+
+document.getElementById("menuBtn").addEventListener("click",function(){
+document.getElementById("mobileMenu").classList.toggle("hidden");
+});
+
+function mostrarAba(id){
+
+document.querySelectorAll('.aba').forEach(div=>{
+div.classList.add('hidden')
+})
+
+document.getElementById(id).classList.remove('hidden')
+
+document.getElementById('btnServicos').classList.remove('bg-[#4DB8FF]','text-black')
+document.getElementById('btnPlanos').classList.remove('bg-[#4DB8FF]','text-black')
+
+if(id==="servicos"){
+document.getElementById('btnServicos').classList.add('bg-[#4DB8FF]','text-black')
+}else{
+document.getElementById('btnPlanos').classList.add('bg-[#4DB8FF]','text-black')
+}
+
+}
+
+</script>
+
+</body>
+</html>

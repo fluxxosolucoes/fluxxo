@@ -1,1111 +1,422 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Fluxxo Soluções</title>
-    <link rel="icon" type="image/svg+xml" href="./img/logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="./img/logo.svg">
+<title>Fluxxo Soluções</title>
+ <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P94CZE0YZT"></script>
-    
-    <style>
-        html, body {
-            scroll-behavior: smooth;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
 
-        /* Sessões */
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 30px 20px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #333;
-        }
-        .overlay {
-            background-color: rgba(255,255,255,0.95);
-            padding: 30px;
-            border-radius: 8px;
-            width: 100%;
-        }
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-        /* Hero */
-        #hero {
-            background: linear-gradient(135deg, #151616, #2261d6);
-            color: white;
-            height: 100vh;
-        }
-        
-        #hero h1,
-        #hero p {
-            animation: slideUpFadeIn 2.5s ease forwards;
-        }
-        
-        #hero p {
-            animation-delay: 0.5s;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        
-        #sobre {
-            min-height: auto;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-        .btn-circle {
-            width: 60px;
-            height: 60px;
-            padding: 0;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .btn-circle:hover {
-            transform: translateY(5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-        .scroll-down svg {
-            animation: bounce 2s infinite;
-            color: #0d6efd; /* cor azul do Bootstrap */
-        }
-        #servicos {
-            min-height: auto;
-        }
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-        /* Navbar */
-        .navbar-brand {
-            color: #ffffff !important;
-        }
-
-        .nav-link {
-            color: #ffffff !important;
-        }
-
-        .nav-link:hover {
-            color: #e0e0e0 !important;
-        }
-
-        /* Links em preto por padrão */
-        a {
-            color: #000000;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #0d6efd;
-        }
-
-        /* Exceção: Links da navbar permanecem brancos */
-        .navbar a {
-            color: #ffffff !important;
-        }
-
-        .navbar a:hover {
-            color: #e0e0e0 !important;
-        }
-
-        /* Exceção: Links da footer permanecem brancos */
-        footer a {
-            color: #ffffff !important;
-        }
-
-        footer a:hover {
-            color: #e0e0e0 !important;
-        }
-
-/* =====================
-   AJUSTES PARA MOBILE
-   ===================== */
-@media (max-width: 768px) {
-
-    /* Geral */
-    section {
-        min-height: auto;
-        padding: 60px 15px;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-
-    p.lead {
-        font-size: 1rem;
-    }
-
-    /* Navbar */
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-
-    /* HERO */
-    #hero {
-        height: 100vh;
-      
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #hero .lead {
-        font-size: 1.1rem;
-    }
-
-    .btn-circle {
-        width: 50px;
-        height: 50px;
-    }
-
-    /* SOBRE */
-    #sobre {
-        height: auto;
-    }
-
-    #sobre img {
-        margin-top: 20px;
-    }
-
-    /* SERVIÇOS */
-    #servicos {
-        height: auto;
-        padding: 60px 15px;
-    }
-
-    .card-service {
-        margin-bottom: 20px;
-    }
-
-    .card-service h5 {
-        font-size: 1.1rem;
-    }
-
-    .card-service p {
-        font-size: 0.95rem;
-    }
-
-    /* Animações */
-    .fade-left,
-    .fade-right {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    /* Footer */
-    footer h5 {
-        font-size: 1.1rem;
-    }
-
-    footer p {
-        font-size: 0.9rem;
-    }
-
-    /* Modal */
-    .modal-dialog {
-        margin: 1rem;
-    }
+<style>
+body{
+font-family:'Lato',sans-serif;
 }
 
-/* Ajustes EXTRA para telas muito pequenas */
-@media (max-width: 480px) {
-
-
-    #hero h1 {
-        font-size: 1.7rem;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-    }
-
-    .btn-lg {
-        width: 100%;
-    }
+#particles-js{
+position:absolute;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
-/* Cards de preços */
-.card-price {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
+.neon-glow{
+box-shadow:
+0 0 5px #4DB8FF,
+0 0 10px #4DB8FF,
+0 0 20px #4DB8FF;
 }
 
-.card-price:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+.neon-pulse{
+animation:pulseGlow 2s infinite alternate;
 }
 
-.card-price h3 {
-    font-weight: 700;
+@keyframes pulseGlow{
+from{box-shadow:0 0 5px #4DB8FF}
+to{box-shadow:0 0 20px #4DB8FF}
 }
-
-/* Destaque */
-.card-price.destaque {
-    border-top: 4px solid #0d6efd;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .card-price {
-        margin-bottom: 20px;
-    }
-}
-
-/* Fotos dos sócios */
-.socio-img {
-    max-width: 200px;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.socio-img:hover {
-    transform: scale(1.05);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .socio-img {
-        max-width: 140px;
-    }
-}
-
-/* Estilos para as abas de preços */
-.nav-tabs {
-    border-bottom: 2px solid #0d6efd;
-    gap: 10px;
-    color: #121111 ;
-}
-
-.nav-tabs .nav-link {
-    color: #000000 !important;
-    border: none;
-    border-bottom: 3px solid transparent;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 12px 24px;
-}
-
-.nav-tabs .nav-link:hover {
-    color: #000000 !important;
-    border-bottom-color: #0d6efd;
-}
-
-.nav-tabs .nav-link.active {
-    color: #000000 !important;
-    background-color: transparent;
-    border-bottom-color: #0d6efd;
-    font-weight: 600;
-}
-
-.tab-content {
-    padding: 40px 0;
-}
-
-.tab-pane {
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUpFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsivo - Abas em telas pequenas */
-@media (max-width: 768px) {
-    .nav-tabs {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .nav-tabs .nav-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-
-    .card-price {
-        margin: 20px 0;
-    }
-
-    .tab-content {
-        padding: 20px 0;
-    }
-}
-
-/* Botão Flutuante */
-.floating-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #0d6efd;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 999;
-    transition: all 0.3s ease;
-}
-
-.floating-button:hover {
-    background-color: #0b5ed7;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transform: scale(1.1);
-}
-
-.floating-button svg {
-    width: 30px;
-    height: 30px;
-    color: white;
-    stroke: white;
-    stroke-width: 2;
-    transition: transform 0.3s ease;
-}
-
-.floating-button.active svg {
-    transform: rotate(45deg);
-}
-
-.floating-menu {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 998;
-}
-
-.floating-social {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: scale(0) translate(0, 0);
-    transform-origin: bottom right;
-}
-
-.floating-social.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.floating-social svg {
-    width: 24px;
-    height: 24px;
-    color: white;
-}
-
-.floating-social:hover {
-    transform: scale(1.1);
-}
-.floating-social.whatsapp {
-    background-color: #25D366;
-    animation-delay: 0.05s;
-    bottom: 80px;
-    right: 0;
-}
-
-.floating-social.whatsapp svg {
-    width: 28px;
-    height: 28px;
-}
-
-
-.floating-social.instagram {
-    background-color: #E1306C;
-    animation-delay: 0.1s;
-    bottom: 140px;
-    right: 0;
-}
-
-.floating-social.linkedin {
-    background-color: #0077B5;
-    animation-delay: 0.15s;
-    bottom: 200px;
-    right: 0;
-}
-
-.floating-social.tiktok {
-    background-color: #000000;
-    animation-delay: 0.2s;
-    bottom: 260px;
-    right: 0;
-}
-
-.floating-social:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .floating-button {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .floating-button svg {
-        width: 26px;
-        height: 26px;
-    }
-
-    .floating-social {
-        width: 45px;
-        height: 45px;
-    }
-
-    .floating-social.whatsapp {
-        bottom: 70px;
-    }
-
-    .floating-social.instagram {
-        bottom: 120px;
-    }
-
-    .floating-social.linkedin {
-        bottom: 170px;
-    }
-
-    .floating-social.tiktok {
-        bottom: 220px;
-    }
-}
-
-
-    </style>
+</style>
 </head>
-<body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg " style="background-color: transparent; padding: 15px 20px; position: absolute; width: 100%; z-index: 1000; color:#ffffff">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Fluxxo Soluções</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto" >
-                
-                    <li class="nav-menu"><a class="nav-link" href="#sobre">Sobre</a></li>
-                    <li class="nav-menu"><a class="nav-link" href="#servicos">Serviços</a></li>
-                    <li class="nav-menu"><a class="nav-link" href="#contato">Contato</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body class="bg-[#061C3F] text-white relative">
 
-<!-- Hero -->
-<section class="text-center" id="hero">
-    <div class="container">
-        <h1 class="display-4">Fluxxo Soluções</h1>
-        <p class="lead">Soluções digitais personalizadas para sua empresa crescer com eficiência.</p>
-    </div>
-    <!-- Indicador para rolar -->
-        <div class="scroll-down mt-4 text-center">
-            <a href="#sobre" class="btn btn-light btn-circle shadow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 1 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-                </svg>
-            </a>
-        </div>
-</section>
+<div id="particles-js"></div>
 
-<!-- Sobre a Empresa -->
-<section id="sobre" style="background-color: #f5f5f5; padding: 20px 20px; height: 100vh;">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <!-- Coluna do Texto -->
-            <div class="col-md-6">
-                <h2 class="section-title mb-4">Sobre a Empresa</h2>
-                <p class="fade-left lead">
-                 A <strong>Fluxxo Soluções</strong> cria sistemas, planilhas e ferramentas digitais que tornam processos administrativos e financeiros mais rápidos e eficientes.
-                </p>
-                <p class="fade-left lead">
-                    Nosso objetivo é aumentar a produtividade da sua empresa e reduzir erros operacionais, oferecendo soluções práticas, inteligentes e sob medida para cada negócio.
-                </p>
-                
-            </div>
-            <!-- Coluna da Imagem -->
-            <!-- Coluna dos Sócios -->
-<div class="col-md-6 text-center">
-    <div class="row justify-content-center g-4">
+<!-- NAVBAR -->
+<header class="bg-[#0A2A66]/90 backdrop-blur-md fixed w-full z-50">
 
-        <!-- Sócio 1 -->
-        <div class="col-6">
-            <img src="./img/amanda.jpeg"
-                 alt="Sócio 1"
-                 class="img-fluid rounded-circle shadow socio-img">
-            <h6 class="mt-3">Amanda Santos <br> Desenvolvedora Web</h6>
-        </div>
+<div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
 
-        <!-- Sócio 2 -->
-        <div class="col-6">
-            <img src="./img/anderson.jpeg"
-                 alt="Sócio 2"
-                 class="img-fluid rounded-circle shadow socio-img">
-            <h6 class="mt-3">Anderson Lima <br> Analista de Dados</h6>
-        </div>
-
-    </div>
+<div class="flex items-center space-x-3">
+<img src="./img/logo.svg" class="h-8 md:h-10">
+<span class="font-bold text-lg md:text-xl text-[#4DB8FF]">Fluxxo Soluções</span>
 </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- Serviços -->
-<section id="servicos" style="background-color: #f8f9fa; padding: 80px 20px;">
-    <div class="container">
-        <h2 class="section-title text-center mb-5">Nossos Serviços</h2>
-
-        <!-- Parágrafo Introdutório -->
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
-                <p class="lead text-secondary mb-0">
-                    Ajudamos pequenas e médias empresas a organizarem seus processos, aumentarem produtividade e ganharem mais controle através de soluções digitais personalizadas.
-                </p>
-            </div>
-        </div>
-
-        <!-- Parte 1: Como ajudamos sua empresa -->
-        <div style="margin-top: 80px; margin-bottom: 80px;">
-            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Como ajudamos sua empresa a crescer</h3>
-            <div class="row justify-content-center g-4 mb-5">
-                <!-- Card 1: Controle sem Caos -->
-                <div class="col-md-4 fade-left">
-                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
-                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Controle sem Caos</h5>
-                        <p class="card-text" style="font-size: 1.1rem;"><strong>Menos retrabalho, mais organização</strong></p>
-                        <p class="card-text text-secondary">Planilhas e sistemas que centralizam suas informações, eliminam erros manuais e dão visibilidade total dos seus processos financeiros e operacionais.</p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Sites que Vendem -->
-                <div class="col-md-4 fade-right">
-                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
-                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Sites que Convertem</h5>
-                        <p class="card-text" style="font-size: 1.1rem;"><strong>Mais clientes, mais vendas</strong></p>
-                        <p class="card-text text-secondary">Sites rápidos, estratégicos e otimizados para converter visitantes em oportunidades reais. Sua presença online trabalhando para gerar receita.</p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Sistemas que Escalam -->
-                <div class="col-md-4 fade-left">
-                    <div class="card card-service text-center p-5 h-100 shadow-sm" 
-                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-3" style="color: #0d6efd; font-weight: 700; font-size: 1.2rem;">Sistemas que Escalam</h5>
-                        <p class="card-text" style="font-size: 1.1rem;"><strong>Crescimento sem limites</strong></p>
-                        <p class="card-text text-secondary">ERP, CRM e sistemas personalizados que crescem com sua empresa. Automação que multiplica produtividade sem multiplicar o trabalho manual.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Parte 2: Resultados que entregamos -->
-        <div style="margin-top: 80px; margin-bottom: 80px;">
-            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Resultados que já entregamos</h3>
-            <div class="row justify-content-center g-4 mb-5">
-                <!-- Card Borderôs -->
-                <div class="col-md-4 fade-right">
-                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                         style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-2">Sistema de Borderôs</h5>
-                        <p class="card-text text-secondary">Controle automático de boletos, contas a pagar/receber e geração de relatórios. Clientes reduzem 80% do tempo administrativo.</p>
-                    </div>
-                </div>
-
-                <!-- Card Orçamentos -->
-                <div class="col-md-4 fade-left">
-                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                         style="background-color: #ffffff; border-top: 4px solid #0d6efd; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-2">Sistema de Orçamentos</h5>
-                        <p class="card-text text-secondary">Geração rápida de orçamentos, rastreamento de leads e análise de conversão. Empresas aumentam taxa de fechamento de vendas.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 fade-left">
-                    <div class="card card-service text-center p-4 h-100 shadow-sm" 
-                         style="background-color: #f1f3f5; border-top: 4px solid #6c757d; transition: transform 0.3s, box-shadow 0.3s;">
-                        <h5 class="card-title mb-2">Planilhas Estratégicas</h5>
-                        <p class="card-text text-secondary">Sistemas de controle financeiro, vendas e estoque. Empresas ganham visibilidade em tempo real do seu negócio.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Números/Provas Sociais -->
-        <div style="margin-top: 80px; margin-bottom: 80px;">
-            <div class="row justify-content-center g-4 mb-5">
-                <div class="col-md-2 text-center">
-                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
-                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">30+</h3>
-                        <p style="font-size: 0.95rem; margin: 0;">Empresas atendidas</p>
-                    </div>
-                </div>
-                <div class="col-md-2 text-center">
-                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
-                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">120+</h3>
-                        <p style="font-size: 0.95rem; margin: 0;">Soluções criadas</p>
-                    </div>
-                </div>
-                <div class="col-md-2 text-center">
-                    <div style="padding: 30px 20px; background: linear-gradient(135deg, #0d6efd, #4f8cff); border-radius: 10px; color: white;">
-                        <h3 style="font-weight: 700; margin-bottom: 10px; font-size: 2rem;">100%</h3>
-                        <p style="font-size: 0.95rem; margin: 0;">Personalizado</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Por que escolher a gente -->
-        <div style="background-color: #ffffff; padding: 60px; border-radius: 10px; margin: 80px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
-            <h3 class="text-center mb-5" style="color: #0d6efd; font-weight: 600; font-size: 1.8rem;">Por que escolher a Fluxxo Soluções?</h3>
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="row g-5">
-                        <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;"> Atendimento Direto</p>
-                            <p class="text-secondary">Sem intermediários. Você fala direto com quem vai entregar sua solução.</p>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;">100% Personalizado</p>
-                            <p class="text-secondary">Nada engessado. Cada solução é desenvolvida para suas necessidades reais.</p>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <p style="font-weight: 600; color: #0d6efd; margin-bottom: 15px; font-size: 1.1rem;"> Entrega Rápida</p>
-                            <p class="text-secondary">Começamos rápido. Suporte pós-projeto incluído em tudo que fazemos.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5">
-            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalContato" style="padding: 10px 10px; font-weight: 400;">
-                Solicitar Orçamento
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- Planos e Preços -->
-<section id="precos" style="background-color: #ffffff; padding: 80px 20px;">
-    <div class="container">
-        <h2 class="section-title text-center mb-5">Planos e Preços</h2>
-
-        <!-- Abas de Navegação -->
-        <ul class="nav nav-tabs justify-content-center mb-4" id="precosTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="tab-planilhas" data-bs-toggle="tab" data-bs-target="#planilhas" type="button" role="tab">
-                    Planilhas Personalizadas
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-sites" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab">
-                    Sites Profissionais
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-sistemas" data-bs-toggle="tab" data-bs-target="#sistemas" type="button" role="tab">
-                    Sistemas Personalizados
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-manutencao" data-bs-toggle="tab" data-bs-target="#manutencao" type="button" role="tab">
-                    Manutenção de Sites
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-limpeza" data-bs-toggle="tab" data-bs-target="#limpeza" type="button" role="tab">
-                    Limpeza de Computadores
-                </button>
-            </li>
-        </ul>
-
-        <!-- Conteúdo das Abas -->
-        <div class="tab-content" id="precosTabContent">
-            
-            <!-- Aba Planilhas -->
-            <div class="tab-pane fade show active" id="planilhas" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card card-price text-center shadow-sm border-0">
-                            <div class="card-body p-5">
-                                <h5 class="mb-4">Planilhas Personalizadas</h5>
-                                <h2 class="text-primary mb-2">R$ 40,00</h2>
-                                <p class="text-muted mb-4">a partir de</p>
-                                <p class="text-secondary mb-4">
-                                    Planilhas financeiras, de controle de vendas e gestão administrativa totalmente personalizadas para sua empresa.
-                                </p>
-                                <ul class="list-unstyled mb-4 text-start">
-                                    <li class="mb-2">✓ Customização completa</li>
-                                    <li class="mb-2">✓ Fórmulas automáticas</li>
-                                    <li class="mb-2">✓ Gráficos e relatórios</li>
-                                    <li class="mb-2">✓ Suporte inicial</li>
-                                </ul>
-                                <button class="btn btn-outline-primary w-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalContato">
-                                    Solicitar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aba Sites -->
-            <div class="tab-pane fade" id="sites" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card card-price text-center shadow-sm border-0 destaque">
-                            <div class="card-body p-5">
-                                <h5 class="mb-4">Sites Profissionais</h5>
-                                <h2 class="text-primary mb-2">R$ 300,00</h2>
-                                <p class="text-muted mb-4">a partir de</p>
-                                <p class="text-secondary mb-4">
-                                    Criação de sites responsivos e modernos, otimizados para performance e presença online profissional.
-                                </p>
-                                <ul class="list-unstyled mb-4 text-start">
-                                    <li class="mb-2">✓ Design responsivo</li>
-                                    <li class="mb-2">✓ Otimizado para SEO</li>
-                                    <li class="mb-2">✓ Velocidade garantida</li>
-                                    <li class="mb-2">✓ Suporte de 30 dias</li>
-                                </ul>
-                                <button class="btn btn-primary w-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalContato">
-                                    Solicitar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aba Sistemas -->
-            <div class="tab-pane fade" id="sistemas" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card card-price text-center shadow-sm border-0">
-                            <div class="card-body p-5">
-                                <h5 class="mb-4">Sistemas Personalizados</h5>
-                                <h2 class="text-primary mb-2">R$ 1.000,00</h2>
-                                <p class="text-muted mb-4">a partir de</p>
-                                <p class="text-secondary mb-4">
-                                    ERP, CRM e sistemas sob medida para otimizar processos internos e aumentar a produtividade da sua empresa.
-                                </p>
-                                <ul class="list-unstyled mb-4 text-start">
-                                    <li class="mb-2">✓ Arquitetura escalável</li>
-                                    <li class="mb-2">✓ Banco de dados robusto</li>
-                                    <li class="mb-2">✓ Interface intuitiva</li>
-                                    <li class="mb-2">✓ Treinamento incluído</li>
-                                </ul>
-                                <button class="btn btn-outline-primary w-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalContato">
-                                    Solicitar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aba Manutenção -->
-            <div class="tab-pane fade" id="manutencao" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card card-price text-center shadow-sm border-0">
-                            <div class="card-body p-5">
-                                <h5 class="mb-4">Manutenção de Sites</h5>
-                                <h2 class="text-primary mb-2">R$ 120,00</h2>
-                                <p class="text-muted mb-4">mensal</p>
-                                <p class="text-secondary mb-4">
-                                    Monitore e mantenha seu site sempre atualizado, seguro e funcionando perfeitamente.
-                                </p>
-                                <ul class="list-unstyled mb-4 text-start">
-                                    <li class="mb-2">✓ Atualizações de segurança</li>
-                                    <li class="mb-2">✓ Backup automático</li>
-                                    <li class="mb-2">✓ Monitoramento 24/7</li>
-                                    <li class="mb-2">✓ Suporte técnico contínuo</li>
-                                </ul>
-                                <button class="btn btn-outline-primary w-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalContato">
-                                    Contratar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aba Limpeza de Computadores -->
-            <div class="tab-pane fade" id="limpeza" role="tabpanel">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="card card-price text-center shadow-sm border-0">
-                            <div class="card-body p-5">
-                                <h5 class="mb-4">Limpeza de Computadores</h5>
-                                <h2 class="text-primary mb-2">R$ 150,00</h2>
-                                <p class="text-muted mb-4">única</p>
-                                <p class="text-secondary mb-4">
-                                    Serviço de limpeza física e otimização de desempenho para computadores, garantindo maior velocidade e vida útil dos equipamentos.
-                                </p>
-                                <ul class="list-unstyled mb-4 text-start">
-                                    <li class="mb-2">✓ Limpeza física de componentes internos</li>
-                                    <li class="mb-2">✓ Otimização de desempenho</li>
-                                    <li class="mb-2">✓ Atualização de drivers</li>
-                                    <li class="mb-2">✓ Formatação do sistema operacional</li>
-                                </ul>
-                                <button class="btn btn-outline-primary w-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalContato">
-                                    Contratar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="text-center text-muted mt-5">
-            * Valores podem variar conforme a complexidade do projeto.
-        </p>
-    </div>
-</section>
-
-
-<!-- Footer -->
-<!-- Bootstrap Icons CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-<footer class="bg-dark text-white text-center py-4" id="contato">
-
-<img src="img/logo.svg" alt="Fluxxo Soluções" style="width: 120px; margin-bottom: 15px;">
-
-
-    <div class="mb-3">
-        <h5>Redes Sociais</h5>
-        
-        <a href="https://www.instagram.com/fluxxosolucoes/" class="text-white me-3" target="_blank">
-            <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/fluxxosolucoes" class="text-white" target="_blank">
-            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
-        </a>
-    </div>
-    <div class="mb-3">
-        <h5>Localização</h5>
-        <p>Atendimento Online, João Pessoa - PB</p>
-    </div>
-    <div class="container">
-        &copy; 2026 Fluxxo Soluções. Todos os direitos reservados.
-    </div>
-</footer>
-
-
-<!-- Modal Contato -->
-<div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form id="formContato">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalContatoLabel">Entre em Contato</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-2">
-                    <label>Nome</label>
-                    <input type="text" class="form-control" required>
-                </div>
-                <div class="mb-2">
-                    <label>Serviço de Interesse</label>
-                    <select class="form-select" required>
-                        <option value="" disabled selected>Selecione um serviço</option>
-                        <option value="Desenvolvimento Web">Desenvolvimento Web</option>
-                        <option value="Planilhas Personalizadas">Planilhas Personalizadas</option>
-                        <option value="Sistemas Personalizados">Sistemas Personalizados</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-        </div>
-    </form>
-  </div>
-</div>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-$(document).ready(function(){
-    // Smooth scroll
-    $('a[href^="#"]').click(function(e){
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 600);
-    });
-
-    // Hover nos cards
-    $('.card-service').hover(
-        function(){
-            $(this).animate({ marginTop: "-5px" }, 200);
-            $(this).css("box-shadow", "0 6px 15px rgba(0,0,0,0.2)");
-        },
-        function(){
-            $(this).animate({ marginTop: "0px" }, 200);
-            $(this).css("box-shadow", "none");
-        }
-    );
-
-    // Fade-in ao scroll lateral
-    function checkFade() {
-        $('.fade-left, .fade-right').each(function(){
-            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            if(bottom_of_window > bottom_of_element - 50){
-                $(this).animate({ 'opacity': '1', 'transform': 'translateX(0)' }, 500);
-            }
-        });
-    }
-
-
-    $(window).scroll(checkFade);
-    checkFade(); // verificar ao carregar
-
-    
-$(window).on('scroll', function() {
-    $('.fade-left, .fade-right').each(function() {
-        var bottom_of_element = $(this).offset().top + $(this).outerHeight();
-        var bottom_of_window = $(window).scrollTop() + $(window).height();
-        if(bottom_of_window > bottom_of_element - 50){
-            $(this).addClass('visible');
-        }
-    });
-});
-$(document).ready(function() {
-    $('#formContato').on('submit', function(e) {
-        e.preventDefault(); // impede o envio padrão do form
-
-        // Captura os dados do formulário
-        var nome = $(this).find('input[type="text"]').val();
-        var servico = $(this).find('select').val();
-        var mensagem = $(this).find('textarea').val();
-
-        // Monta a mensagem que será enviada
-        var texto = `Olá! Meu nome é ${nome} tenho interesse em ${servico}!`;
-
-        // Número do WhatsApp do destinatário (coloque seu número aqui)
-        var numero = "5583999921413"; // formato: código do país + DDD + número
-
-        // URL do WhatsApp
-        var url = `https://wa.me/${numero}?text=${texto}`;
-
-        // Abre o WhatsApp em nova aba
-        window.open(url, "_blank");
-    });
-});
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-P94CZE0YZT');
-});
-</script>
-
-<!-- Botão Flutuante -->
-<div class="floating-menu">
-    <div class="floating-social whatsapp" title="WhatsApp" onclick="window.open('https://wa.me/5583999921413', '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.6915026,12.4744748 C16.4744748,12.1379033 16.1272231,12.0152284 15.8156424,12.0152284 C15.4393281,12.0152284 15.1272231,12.1379033 14.9109131,12.4744748 C14.6564928,12.9341563 14.1219765,13.9245283 13.9051228,14.2460905 C13.8915662,14.2743725 13.8667115,14.3002166 13.837788,14.3235161 C13.5314604,14.6271332 13.1700788,14.9140349 12.6563168,14.9140349 L12.6517973,14.9140349 C12.208004,14.9140349 11.7506197,14.7586765 11.4051228,14.5024922 L11.2957855,14.4115601 C9.88808315,13.209105 8.71269227,11.5765034 8.16592039,9.50039247 C7.99212963,8.84677296 7.95492891,8.36789799 7.95492891,7.94834254 C7.95492891,7.30376878 8.12039559,6.68308185 8.42721295,6.12236042 C8.80779339,5.38390428 9.49607417,4.92612633 10.2862462,4.92612633 C10.5455243,4.92612633 10.7968586,4.99021836 11.0346269,5.11496169 C11.2577922,5.23371034 11.4393281,5.42607721 11.5511751,5.68514289 L12.0907161,7.00326957 C12.1775838,7.23869461 12.1594218,7.50214067 12.0409423,7.72216224 C11.9900484,7.8160921 11.9271043,7.90318217 11.8524549,7.97892944 C11.6934695,8.13873898 11.5455243,8.30143996 11.5455243,8.53686499 C11.5455243,8.95603635 12.0384027,9.82175902 12.5588277,10.6295314 C13.3906263,11.8707574 14.3476637,12.5139968 14.9928778,12.8032349 C15.1624395,12.8902918 15.3166914,12.9561394 15.4555809,13.0007725 C15.6897476,13.0761288 15.9195843,13.0561085 16.1282265,12.9440516 L16.1358219,12.9396999 C16.3399371,12.8273427 16.5028906,12.6520333 16.5825924,12.4228882 L16.6915026,12.4744748 Z M12.0604706,2 C6.58524169,2 2.22662934,6.3586334 2.22662934,11.8338624 C2.22662934,13.5995731 2.71215321,15.2560337 3.6112389,16.6677396 L2.55315649,20.6551734 L6.85882174,19.6299754 C8.22727567,20.4507536 9.8074461,20.9052589 11.5014443,20.9052589 C17.6274352,20.9052589 22.2542857,16.531903 22.2542857,11.0566741 C22.2542857,8.45558705 21.2707943,6.06923853 19.5,4.31597206 C17.7292057,2.56270559 15.3136317,1.5 12.6517232,1.5 L12.0604706,2 Z M12.0604706,2 C6.58524169,2 2.22662934,6.3586334 2.22662934,11.8338624 C2.22662934,13.5995731 2.71215321,15.2560337 3.6112389,16.6677396 L2.55315649,20.6551734 L6.85882174,19.6299754 C8.22727567,20.4507536 9.8074461,20.9052589 11.5014443,20.9052589 C17.6274352,20.9052589 22.2542857,16.531903 22.2542857,11.0566741 C22.2542857,8.45558705 21.2707943,6.06923853 19.5,4.31597206 C17.7292057,2.56270559 15.3136317,1.5 12.6517232,1.5 L12.0604706,2 Z"/>
-        </svg>
-    </div>
-
-    
-    <div class="floating-social instagram" title="Instagram" onclick="window.open('https://www.instagram.com/fluxxosolucoes', '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.756 0 8.331.012 7.052.069 2.635.278.278 2.579.059 7.052.012 8.331 0 8.756 0 12s.012 3.669.069 4.948c.219 4.467 2.576 6.771 7.052 6.98 1.279.057 1.704.069 4.948.069s3.669-.012 4.948-.069c4.47-.216 6.462-2.553 6.612-7.095.057-1.279.069-1.704.069-4.929s-.012-3.669-.069-4.948c-.149-4.57-2.147-6.61-7.1-6.81-1.279-.058-1.704-.07-4.949-.07zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm4.29-10.646a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/>
-        </svg>
-    </div>
-    
-    <div class="floating-social linkedin" title="LinkedIn" onclick="window.open('https://www.linkedin.com/company/fluxxosolucoes', '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-        </svg>
-    </div>
-    
-    <div class="floating-social tiktok" title="TikTok" onclick="window.open('https://www.tiktok.com/@fluxxosolucoes', '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.86 2.86 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.96-.1z"/>
-        </svg>
-    </div>
-</div>
-
-<button class="floating-button" id="floatingBtn">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-    </svg>
+<button id="menuBtn" class="md:hidden text-2xl">
+☰
 </button>
 
-<script>
-// Botão flutuante
-const floatingBtn = document.getElementById('floatingBtn');
-const floatingSocials = document.querySelectorAll('.floating-social');
+<nav class="hidden md:flex space-x-8 text-sm md:text-base">
+<a href="index.html" class="text-[#4DB8FF] font-semibold">Home</a>
+<a href="servicos.html" class="hover:text-[#4DB8FF]">Serviços</a>
+<a href="sobre.html" class="hover:text-[#4DB8FF]">Sobre</a>
+<a href="projetos.html" class="hover:text-[#4DB8FF]">Projetos</a>
+</nav>
 
-if (floatingBtn) {
-    floatingBtn.addEventListener('click', function() {
-        floatingBtn.classList.toggle('active');
-        floatingSocials.forEach(social => {
-            social.classList.toggle('show');
-        });
-    });
-    
-    // Fecha o menu ao clicar em um botão social
-    floatingSocials.forEach(social => {
-        social.addEventListener('click', function() {
-            floatingBtn.classList.remove('active');
-            floatingSocials.forEach(s => s.classList.remove('show'));
-        });
-    });
+</div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden md:hidden bg-[#0A2A66] text-center py-4 space-y-4">
+<a href="index.html" class="block">Home</a>
+<a href="servicos.html" class="block">Serviços</a>
+<a href="sobre.html" class="block">Sobre</a>
+<a href="projetos.html" class="block">Projetos</a>
+</div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="min-h-[80vh] md:min-h-screen flex items-center justify-center text-center px-5">
+
+  <div class="max-w-md md:max-w-3xl">
+
+    <h1 class="text-2xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight" data-aos="fade-up">
+      Inovação que Move o Seu Negócio
+    </h1>
+
+    <p class="text-gray-300 text-sm md:text-lg mb-6 md:mb-8 mx-auto" 
+       data-aos="fade-up" 
+       data-aos-delay="200">
+      Desenvolvemos planilhas inteligentes, criamos sites personalizados e realizamos manutenção em computadores.
+    </p>
+
+    <a href="servicos.html"
+       data-aos="fade-up"
+       data-aos-delay="400"
+       class="inline-block bg-[#4DB8FF] text-black text-sm md:text-base px-5 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:scale-105 transition">
+      Conheça nossos serviços
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- NÚMEROS / PROVA SOCIAL -->
+<section class="min-h-screen mb-4 py-20 bg-[#0B1320]">
+
+<div class="max-w-6xl mb-4 mx-auto px-6">
+
+<!-- NÚMEROS -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-16">
+
+<div data-aos="fade-up">
+<h2 class="text-4xl md:text-5xl font-bold text-[#4DB8FF]">30+</h2>
+<p class="text-gray-300 mt-2">Empresas atendidas</p>
+</div>
+
+<div data-aos="fade-up" data-aos-delay="200">
+<h2 class="text-4xl md:text-5xl font-bold text-[#4DB8FF]">120+</h2>
+<p class="text-gray-300 mt-2">Soluções criadas</p>
+</div>
+
+<div data-aos="fade-up" data-aos-delay="400">
+<h2 class="text-4xl md:text-5xl font-bold text-[#4DB8FF]">100%</h2>
+<p class="text-gray-300 mt-2">Personalizado</p>
+</div>
+
+</div>
+
+<!-- POR QUE ESCOLHER -->
+<div class="text-center mb-12">
+
+<h2 class="text-2xl md:text-3xl font-bold">
+Por que escolher a Fluxxo Soluções?
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8 text-center mb-16">
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up">
+
+<h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
+Atendimento Direto
+</h3>
+
+<p class="text-gray-300 text-sm">
+Sem intermediários. Você fala direto com quem vai desenvolver e entregar sua solução.
+</p>
+
+</div>
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="200">
+
+<h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
+100% Personalizado
+</h3>
+
+<p class="text-gray-300 text-sm">
+Nada engessado. Cada solução é criada pensando nas necessidades reais do seu negócio.
+</p>
+
+</div>
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="400">
+
+<h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
+Entrega Rápida
+</h3>
+
+<p class="text-gray-300 text-sm">
+Começamos rápido e você ainda conta com suporte depois da entrega do projeto.
+</p>
+
+</div>
+
+</div>
+
+<!-- SERVIÇOS RESUMO -->
+<div class="grid gap-10 md:grid-cols-3 text-center">
+
+<div data-aos="fade-up">
+<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
+Planilhas Inteligentes
+</h3>
+<p class="text-gray-300 text-sm md:text-base">
+Automação e controle profissional.
+</p>
+</div>
+
+<div data-aos="fade-up" data-aos-delay="200">
+<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
+Sites Personalizados
+</h3>
+<p class="text-gray-300 text-sm md:text-base">
+Design moderno e responsivo.
+</p>
+</div>
+
+<div data-aos="fade-up" data-aos-delay="400">
+<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
+Manutenção e Instalação
+</h3>
+<p class="text-gray-300 text-sm md:text-base">
+Formatação e otimização completa.
+</p>
+</div>
+
+</div>
+
+<p class="text-gray-300 text-center mt-12 max-w-3xl mx-auto text-sm md:text-base px-4">
+Mais do que entregar tecnologia, queremos caminhar junto com você e ajudar o seu negócio a crescer.
+</p>
+
+</div>
+
+</section>
+
+<!-- DICAS / DOWNLOAD PLANILHA -->
+<section class="min-h-screen flex items-center pb-24 pt-20 max-w-6xl mx-auto px-6">
+
+<div class="w-full">
+
+<div class="text-center mb-12">
+<h2 class="text-2xl md:text-3xl font-bold">
+Baixe uma Planilha Gratuita de Controle Financeiro
+</h2>
+<p class="text-gray-300 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+Organize as finanças da sua empresa e tenha mais clareza sobre lucros, despesas e resultados.
+</p>
+</div>
+
+<div class="grid gap-8 md:grid-cols-3">
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
+<i class="fas fa-chart-line text-3xl text-[#4DB8FF] mb-4"></i>
+
+<h3 class="text-lg md:text-xl font-semibold mb-4">
+Controle financeiro profissional
+</h3>
+</div>
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
+<i class="fas fa-globe text-3xl text-[#4DB8FF] mb-4"></i>
+
+<h3 class="text-lg md:text-xl font-semibold mb-4">
+Seu negócio precisa de um site
+</h3>
+
+<p class="text-gray-300 text-sm">
+Empresas com site profissional passam mais confiança e conseguem atrair novos clientes todos os dias.
+</p>
+</div>
+
+<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
+<i class="fas fa-laptop text-3xl text-[#4DB8FF] mb-4"></i>
+
+<h3 class="text-lg md:text-xl font-semibold mb-4">
+Computador sempre rápido
+</h3>
+
+<p class="text-gray-300 text-sm">
+Manutenção preventiva evita travamentos, aumenta a vida útil do equipamento e protege seus dados.
+</p>
+</div>
+
+</div>
+
+<div class="text-center mt-12">
+<p class="text-gray-300 text-sm mb-6 max-w-xl mx-auto">
+Baixe uma planilha gratuita para controlar entradas, saídas e visualizar melhor o desempenho do seu negócio.
+</p>
+
+<a href="#" class="bg-[#4DB8FF] text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition inline-block">
+Baixar planilha
+</a>
+</div>
+
+</div>
+
+</section>
+<!-- BOTÃO REDES -->
+<div class="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 flex flex-col items-center">
+
+<div id="socialMenu"
+class="flex flex-col items-center space-y-3 mb-4 opacity-0 translate-y-5 pointer-events-none transition-all duration-300">
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+   target="_blank"
+   class="bg-green-500 w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center hover:scale-110 transition">
+
+<i class="fab fa-whatsapp text-white text-lg"></i>
+
+</a>
+<a href="https://www.instagram.com/fluxxosolucoes/" class="bg-pink-500 w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center">
+<i class="fab fa-instagram text-white text-lg"></i>
+</a>
+
+</div>
+
+<button onclick="toggleSocial()"
+class="bg-white w-14 h-14 md:w-16 md:h-16 rounded-full neon-glow neon-pulse flex items-center justify-center">
+
+<img id="mainIcon" src="./img/logo.svg" class="h-8 md:h-10">
+
+</button>
+
+</div>
+
+<footer class="bg-[#0B1320] text-gray-300 py-20 border-t border-[#4DB8FF]/10">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+
+<!-- LOGO -->
+<div class="flex flex-col items-center md:items-start">
+<img src="./img/logo.svg" class="h-20 mb-4">
+
+<p class="text-gray-400 text-sm max-w-xs">
+Soluções digitais para empresas que querem crescer com organização, tecnologia e presença online.
+</p>
+</div>
+
+<!-- REDES -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">
+Redes Sociais
+</h3>
+
+<div class="flex justify-center md:justify-start space-x-6 text-2xl">
+
+<a href="https://www.instagram.com/fluxxosolucoes/" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.linkedin.com/company/fluxxosolucoes/" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es" class="hover:text-[#4DB8FF] transition">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+</div>
+
+<!-- LOCALIZAÇÃO -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">
+Atendimento
+</h3>
+
+<p class="text-gray-400 text-sm mb-2">
+João Pessoa - PB
+</p>
+
+<p class="text-gray-400 text-sm">
+Atendimento online para todo o Brasil
+</p>
+
+</div>
+
+</div>
+
+<!-- DIVISÃO -->
+<div class="border-t border-[#4DB8FF]/10 mt-16 pt-8 text-center">
+
+<p class="text-gray-500 text-sm">
+© 2026 Fluxxo Soluções • Todos os direitos reservados
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script>
+
+AOS.init();
+
+document.getElementById("menuBtn").addEventListener("click",function(){
+document.getElementById("mobileMenu").classList.toggle("hidden");
+});
+
+function toggleSocial(){
+const menu=document.getElementById("socialMenu");
+const icon=document.getElementById("mainIcon");
+
+menu.classList.toggle("opacity-0");
+menu.classList.toggle("translate-y-5");
+menu.classList.toggle("pointer-events-none");
+icon.classList.toggle("fa-plus");
+icon.classList.toggle("fa-xmark");
 }
+
+particlesJS("particles-js",{
+particles:{
+number:{value:60},
+color:{value:"#4DB8FF"},
+size:{value:3},
+line_linked:{enable:true,color:"#4DB8FF"},
+move:{speed:2}
+}
+});
+
 </script>
 
-    </body>
+</body>
 </html>
