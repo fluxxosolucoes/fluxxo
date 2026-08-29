@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="icon" type="image/svg+xml" href="./img/logo.svg">
-
 <title>Projetos - Fluxxo Soluções</title>
  <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P94CZE0YZT"></script>
@@ -21,71 +19,92 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* animação globo */
-
-@keyframes spinSlow{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
+body{
+font-family:'Lato',sans-serif;
 }
 
-/* pulsação pontos */
-
-@keyframes pulseNode{
-0%,100%{opacity:.2;transform:scale(1);}
-50%{opacity:1;transform:scale(1.4);}
+.tech-grid{
+background-image:
+linear-gradient(rgba(77,184,255,0.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(77,184,255,0.08) 1px, transparent 1px);
+background-size: 40px 40px;
+-webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
 }
 
-.globe-spin{animation:spinSlow 90s linear infinite;}
+.glow-card{
+position:relative;
+transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
 
-.node{animation:pulseNode 4s ease-in-out infinite;}
+.glow-card:hover{
+box-shadow: 0 0 30px rgba(77,184,255,0.25);
+border-color: rgba(77,184,255,0.6);
+}
 
-.node:nth-child(2){animation-delay:1s;}
-.node:nth-child(3){animation-delay:2s;}
-.node:nth-child(4){animation-delay:3s;}
+.gradient-text{
+background: linear-gradient(90deg, #4DB8FF, #A0E9FF);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
 
+.tilt-card{
+--mx: 50%;
+--my: 50%;
+overflow: hidden;
+will-change: transform;
+}
+
+.tilt-card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius: inherit;
+background: radial-gradient(280px circle at var(--mx) var(--my), rgba(77,184,255,0.18), transparent 70%);
+opacity:0;
+transition: opacity .3s ease;
+pointer-events:none;
+}
+
+.tilt-card:hover::before{
+opacity:1;
+}
+
+/* mockup de navegador */
+.browser-bar{
+background:#08152E;
+}
+
+.browser-dot{
+width:9px;
+height:9px;
+border-radius:9999px;
+}
+
+/* status online piscando */
+@keyframes pulseDot{
+0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.6);}
+50%{box-shadow:0 0 0 6px rgba(34,197,94,0);}
+}
+
+.status-dot{
+animation: pulseDot 1.8s ease-in-out infinite;
+}
 </style>
 
 </head>
 
-
-<body class="bg-[#061C3F] text-white font-[Lato] overflow-x-hidden">
-
-
-<!-- GLOBO TECNOLÓGICO -->
-
-<div class="fixed -bottom-56 -left-56 w-[800px] h-[800px] opacity-30 pointer-events-none">
-
-<svg viewBox="0 0 500 500" class="w-full h-full globe-spin">
-
-<circle cx="250" cy="250" r="200" stroke="#4DB8FF" stroke-width="1.5" fill="none" stroke-dasharray="8 6"/>
-<circle cx="250" cy="250" r="160" stroke="#4DB8FF" stroke-width="1" fill="none" stroke-dasharray="6 6"/>
-<circle cx="250" cy="250" r="120" stroke="#4DB8FF" stroke-width="1" fill="none" stroke-dasharray="4 6"/>
-
-<line x1="110" y1="180" x2="350" y2="110" stroke="#4DB8FF" stroke-width="0.7"/>
-<line x1="350" y1="110" x2="420" y2="260" stroke="#4DB8FF" stroke-width="0.7"/>
-<line x1="420" y1="260" x2="200" y2="380" stroke="#4DB8FF" stroke-width="0.7"/>
-
-<circle class="node" cx="110" cy="180" r="4" fill="#4DB8FF"/>
-<circle class="node" cx="350" cy="110" r="4" fill="#4DB8FF"/>
-<circle class="node" cx="420" cy="260" r="4" fill="#4DB8FF"/>
-<circle class="node" cx="200" cy="380" r="4" fill="#4DB8FF"/>
-
-</svg>
-
-</div>
-
+<body class="bg-[#061C3F] text-white">
 
 <!-- NAVBAR -->
-
-<!-- NAVBAR -->
-<header class="bg-[#0A2A66]/90 backdrop-blur-md fixed w-full z-50">
+<header class="bg-[#061224]/90 backdrop-blur-md fixed w-full z-50">
 
 <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
 
 <div class="flex items-center space-x-3">
 <img src="./img/logo.svg" class="h-8 md:h-10">
-<span class="font-bold text-lg md:text-xl text-[#4DB8FF]">Fluxxo Soluções</span>
+<span class="font-bold text-lg md:text-xl text-[#4DB8FF]"></span>
 </div>
 
 <button id="menuBtn" class="md:hidden text-2xl">
@@ -102,7 +121,7 @@ to{transform:rotate(360deg);}
 </div>
 
 <!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden md:hidden bg-[#0A2A66] text-center py-4 space-y-4">
+<div id="mobileMenu" class="hidden md:hidden bg-[#061224] text-center py-4 space-y-4">
 <a href="index.html" class="block">Home</a>
 <a href="servicos.html" class="block">Serviços</a>
 <a href="sobre.html" class="block">Sobre</a>
@@ -110,49 +129,194 @@ to{transform:rotate(360deg);}
 </div>
 
 </header>
+
 <!-- SEÇÃO PRINCIPAL -->
+<section class="relative pt-32 md:pt-40 pb-20 md:pb-24 px-4 md:px-6 overflow-hidden">
 
-<section class="min-h-screen flex items-center justify-center text-center px-6 pt-40 pb-20">
+<div class="tech-grid absolute inset-0 pointer-events-none"></div>
 
-<div class="max-w-2xl" data-aos="fade-up">
+<div class="relative max-w-6xl mx-auto">
 
-<h1 class="text-4xl md:text-5xl font-bold mb-6">
-Projetos em Construção
+<div class="flex justify-center mb-4" data-aos="fade-up">
+<span class="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-widest text-[#4DB8FF] border border-[#4DB8FF]/30 bg-[#4DB8FF]/5 px-4 py-1.5 rounded-full">
+<i class="fas fa-microchip"></i> PORTFÓLIO & TECNOLOGIA
+</span>
+</div>
+
+<h1 class="text-3xl md:text-5xl font-bold text-center mb-4" data-aos="fade-up">
+Nossos <span class="gradient-text">Projetos</span>
 </h1>
 
-<p class="text-gray-300 text-lg mb-8 leading-relaxed">
-Estamos organizando e catalogando todos os projetos desenvolvidos pela Fluxxo Soluções.
-Em breve você poderá explorar nossos trabalhos, cases e soluções criadas para diferentes empresas.
-</p>
-
-<p class="text-gray-400 mb-10">
-Nosso portfólio mostrará como aplicamos tecnologia, automação e desenvolvimento web para resolver problemas reais e ajudar empresas a crescer.
+<p class="text-center text-gray-400 max-w-2xl mx-auto mb-12 md:mb-16" data-aos="fade-up">
+Sistemas desenvolvidos pela Fluxxo Soluções, em produção e uso real por empresas que confiaram na nossa tecnologia.
 </p>
 
 
-<!-- animação -->
+<!-- PROJETOS -->
+<div class="grid gap-8 md:grid-cols-3">
 
-<div class="flex justify-center space-x-2 mb-10">
 
-<div class="w-3 h-3 bg-[#4DB8FF] rounded-full animate-bounce"></div>
-<div class="w-3 h-3 bg-[#4DB8FF] rounded-full animate-bounce delay-150"></div>
-<div class="w-3 h-3 bg-[#4DB8FF] rounded-full animate-bounce delay-300"></div>
+<!-- CARD 1 -->
+<div class="tilt-card glow-card group relative bg-[#0A2A66] rounded-2xl flex flex-col h-full border border-[#4DB8FF]/20 overflow-hidden" data-aos="fade-up">
+
+<!-- mockup navegador -->
+<div class="browser-bar px-4 py-3 flex items-center gap-2">
+<span class="browser-dot bg-red-400"></span>
+<span class="browser-dot bg-yellow-400"></span>
+<span class="browser-dot bg-green-400"></span>
+<span class="ml-3 text-[11px] text-gray-400 truncate">controleflexx.fluxxosolucoes.com.br</span>
+</div>
+
+<div class="p-8 flex flex-col flex-1">
+
+<div class="flex items-center justify-between mb-6">
+<div class="w-16 h-16 rounded-xl bg-[#4DB8FF]/10 border border-[#4DB8FF]/30 flex items-center justify-center transition duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#4DB8FF]/20">
+<i class="fas fa-gauge-high text-3xl text-[#4DB8FF]"></i>
+</div>
+
+<span class="inline-flex items-center gap-2 text-[11px] font-semibold text-green-400 bg-green-400/10 border border-green-400/30 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-green-400 status-dot"></span> ONLINE
+</span>
+</div>
+
+<h2 class="text-xl md:text-2xl font-bold mb-3">
+Controle Flexx
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Sistema web de controle e gestão, com painéis em tempo real para acompanhar processos e tomar decisões com mais precisão.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-8 text-sm">
+<li>✔ Dashboard em tempo real</li>
+<li>✔ Gestão centralizada de processos</li>
+<li>✔ Relatórios automáticos</li>
+<li>✔ Acesso seguro por login</li>
+</ul>
+
+<a href="https://controleflexx.fluxxosolucoes.com.br/" target="_blank" rel="noopener"
+class="mt-auto block text-center bg-[#4DB8FF] hover:bg-[#3aa3ec] text-black py-3 rounded-lg font-semibold transition">
+<i class="fas fa-arrow-up-right-from-square mr-2"></i> Acessar Sistema
+</a>
+
+</div>
+</div>
+
+
+<!-- CARD 2 -->
+<div class="tilt-card glow-card group relative bg-[#0A2A66] rounded-2xl flex flex-col h-full border border-[#4DB8FF]/20 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+
+<!-- mockup navegador -->
+<div class="browser-bar px-4 py-3 flex items-center gap-2">
+<span class="browser-dot bg-red-400"></span>
+<span class="browser-dot bg-yellow-400"></span>
+<span class="browser-dot bg-green-400"></span>
+<span class="ml-3 text-[11px] text-gray-400 truncate">portariaflexx.fluxxosolucoes.com.br</span>
+</div>
+
+<div class="p-8 flex flex-col flex-1">
+
+<div class="flex items-center justify-between mb-6">
+<div class="w-16 h-16 rounded-xl bg-[#4DB8FF]/10 border border-[#4DB8FF]/30 flex items-center justify-center transition duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#4DB8FF]/20">
+<i class="fas fa-shield-halved text-3xl text-[#4DB8FF]"></i>
+</div>
+
+<span class="inline-flex items-center gap-2 text-[11px] font-semibold text-green-400 bg-green-400/10 border border-green-400/30 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-green-400 status-dot"></span> ONLINE
+</span>
+</div>
+
+<h2 class="text-xl md:text-2xl font-bold mb-3">
+Portaria Flexx
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Sistema digital de controle de portaria e acesso, feito para condomínios e empresas que precisam de mais segurança e agilidade.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-8 text-sm">
+<li>✔ Controle de entrada e saída</li>
+<li>✔ Registro de visitantes</li>
+<li>✔ Histórico completo de acessos</li>
+<li>✔ Interface simples e rápida</li>
+</ul>
+
+<a href="https://portariaflexx.fluxxosolucoes.com.br/" target="_blank" rel="noopener"
+class="mt-auto block text-center bg-[#4DB8FF] hover:bg-[#3aa3ec] text-black py-3 rounded-lg font-semibold transition">
+<i class="fas fa-arrow-up-right-from-square mr-2"></i> Acessar Sistema
+</a>
+
+</div>
+</div>
+
+
+<!-- CARD 3 -->
+<div class="tilt-card glow-card group relative bg-[#0A2A66] rounded-2xl flex flex-col h-full border border-[#4DB8FF]/20 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+
+<!-- mockup navegador -->
+<div class="browser-bar px-4 py-3 flex items-center gap-2">
+<span class="browser-dot bg-red-400"></span>
+<span class="browser-dot bg-yellow-400"></span>
+<span class="browser-dot bg-green-400"></span>
+<span class="ml-3 text-[11px] text-gray-400 truncate">borderoflexx.com</span>
+</div>
+
+<div class="p-8 flex flex-col flex-1">
+
+<div class="flex items-center justify-between mb-6">
+<div class="w-16 h-16 rounded-xl bg-[#4DB8FF]/10 border border-[#4DB8FF]/30 flex items-center justify-center transition duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#4DB8FF]/20">
+<i class="fas fa-file-invoice-dollar text-3xl text-[#4DB8FF]"></i>
+</div>
+
+<span class="inline-flex items-center gap-2 text-[11px] font-semibold text-green-400 bg-green-400/10 border border-green-400/30 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-green-400 status-dot"></span> ONLINE
+</span>
+</div>
+
+<h2 class="text-xl md:text-2xl font-bold mb-3">
+Bordero Flexx
+</h2>
+
+<p class="text-gray-300 mb-6 text-sm md:text-base">
+Plataforma para gestão de borderôs e controle financeiro, organizando recebíveis e otimizando a rotina de cobrança.
+</p>
+
+<ul class="text-gray-400 space-y-2 mb-8 text-sm">
+<li>✔ Gestão de borderôs</li>
+<li>✔ Controle de recebíveis</li>
+<li>✔ Relatórios financeiros</li>
+<li>✔ Automação de cobrança</li>
+</ul>
+
+<a href="https://borderoflexx.com/" target="_blank" rel="noopener"
+class="mt-auto block text-center bg-[#4DB8FF] hover:bg-[#3aa3ec] text-black py-3 rounded-lg font-semibold transition">
+<i class="fas fa-arrow-up-right-from-square mr-2"></i> Acessar Sistema
+</a>
+
+</div>
+</div>
 
 </div>
 
 
-<a href="servicos.html"
-class="bg-[#4DB8FF] text-black px-8 py-4 rounded-lg font-semibold hover:scale-105 transition">
-Conheça nossos serviços
+<!-- CTA FINAL -->
+<div class="mt-16 md:mt-20 text-center" data-aos="fade-up">
+
+<p class="text-gray-300 mb-6">
+Quer um sistema desenvolvido sob medida para o seu negócio?
+</p>
+
+<a href="https://wa.me/558399921413?text=Ol%C3%A1%20vim%20pelo%20site%20da%20Fluxxo%20Solu%C3%A7%C3%B5es"
+class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold transition">
+<i class="fab fa-whatsapp mr-2"></i> Fale com a Fluxxo
 </a>
+
+</div>
 
 </div>
 
 </section>
 
-
-
-<!-- FOOTER -->
 
 <footer class="bg-[#0B1320] text-gray-300 py-20 border-t border-[#4DB8FF]/10">
 
@@ -223,8 +387,8 @@ Atendimento online para todo o Brasil
 
 </footer>
 
-<script>
 
+<script>
 
 AOS.init();
 
@@ -232,10 +396,28 @@ document.getElementById("menuBtn").addEventListener("click",function(){
 document.getElementById("mobileMenu").classList.toggle("hidden");
 });
 
+document.querySelectorAll('.tilt-card').forEach(function(card){
 
-AOS.init({
-duration:800,
-once:true
+card.addEventListener('mousemove', function(e){
+
+var rect = card.getBoundingClientRect();
+var x = e.clientX - rect.left;
+var y = e.clientY - rect.top;
+
+card.style.setProperty('--mx', (x / rect.width * 100) + '%');
+card.style.setProperty('--my', (y / rect.height * 100) + '%');
+
+var rotateX = ((y / rect.height) - 0.5) * -8;
+var rotateY = ((x / rect.width) - 0.5) * 8;
+
+card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.02)';
+
+});
+
+card.addEventListener('mouseleave', function(){
+card.style.transform = '';
+});
+
 });
 
 </script>

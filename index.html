@@ -13,6 +13,7 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
@@ -43,6 +44,56 @@ animation:pulseGlow 2s infinite alternate;
 from{box-shadow:0 0 5px #4DB8FF}
 to{box-shadow:0 0 20px #4DB8FF}
 }
+
+.circuit-bg{
+background-image:radial-gradient(circle at 1px 1px, rgba(77,184,255,.18) 1px, transparent 0);
+background-size:28px 28px;
+}
+
+.tech-card{
+position:relative;
+isolation:isolate;
+background:linear-gradient(180deg,#0E3170,#0A2A66 60%);
+}
+
+.tech-card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:1rem;
+padding:1px;
+background:linear-gradient(135deg,var(--accent,#4DB8FF),transparent 55%);
+-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+opacity:.45;
+transition:opacity .3s ease;
+pointer-events:none;
+}
+
+.tech-card:hover::before{opacity:1}
+
+.tech-card:hover{
+box-shadow:0 0 30px -8px var(--accent,#4DB8FF);
+}
+
+.icon-box{
+background:color-mix(in srgb, var(--accent,#4DB8FF) 15%, transparent);
+border:1px solid color-mix(in srgb, var(--accent,#4DB8FF) 40%, transparent);
+color:var(--accent,#4DB8FF);
+transition:box-shadow .3s ease;
+}
+
+.tech-card:hover .icon-box{
+box-shadow:0 0 18px var(--accent,#4DB8FF);
+}
+
+.tag-pill{
+color:var(--accent,#4DB8FF);
+background:color-mix(in srgb, var(--accent,#4DB8FF) 12%, transparent);
+border:1px solid color-mix(in srgb, var(--accent,#4DB8FF) 30%, transparent);
+}
 </style>
 </head>
 
@@ -51,13 +102,13 @@ to{box-shadow:0 0 20px #4DB8FF}
 <div id="particles-js"></div>
 
 <!-- NAVBAR -->
-<header class="bg-[#0A2A66]/90 backdrop-blur-md fixed w-full z-50">
+<header class="bg-[#061224]/90 backdrop-blur-md fixed w-full z-50">
 
 <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
 
 <div class="flex items-center space-x-3">
 <img src="./img/logo.svg" class="h-8 md:h-10">
-<span class="font-bold text-lg md:text-xl text-[#4DB8FF]">Fluxxo Soluções</span>
+<span class="font-bold text-lg md:text-xl text-[#4DB8FF]"></span>
 </div>
 
 <button id="menuBtn" class="md:hidden text-2xl">
@@ -74,7 +125,7 @@ to{box-shadow:0 0 20px #4DB8FF}
 </div>
 
 <!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden md:hidden bg-[#0A2A66] text-center py-4 space-y-4">
+<div id="mobileMenu" class="hidden md:hidden bg-[#061224] text-center py-4 space-y-4">
 <a href="index.html" class="block">Home</a>
 <a href="servicos.html" class="block">Serviços</a>
 <a href="sobre.html" class="block">Sobre</a>
@@ -90,19 +141,19 @@ to{box-shadow:0 0 20px #4DB8FF}
   <div class="max-w-md md:max-w-3xl">
 
     <h1 class="text-2xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight" data-aos="fade-up">
-      Inovação que Move o Seu Negócio
+      Qual problema vamos resolver? 
     </h1>
 
     <p class="text-gray-300 text-sm md:text-lg mb-6 md:mb-8 mx-auto" 
        data-aos="fade-up" 
        data-aos-delay="200">
-      Desenvolvemos planilhas inteligentes, criamos sites personalizados e realizamos manutenção em computadores.
+      Automatize processos, escale suas operações e modernize a presença digital da sua empresa.
     </p>
 
     <a href="servicos.html"
        data-aos="fade-up"
        data-aos-delay="400"
-       class="inline-block bg-[#4DB8FF] text-black text-sm md:text-base px-5 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:scale-105 transition">
+       class="inline-block bg-[#4DB8FF] text-white text-sm md:text-base px-5 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:scale-105 transition">
       Conheça nossos serviços
     </a>
 
@@ -112,9 +163,9 @@ to{box-shadow:0 0 20px #4DB8FF}
 
 
 <!-- NÚMEROS / PROVA SOCIAL -->
-<section class="min-h-screen mb-4 py-20 bg-[#0B1320]">
+<section class="circuit-bg min-h-screen py-20 bg-[#0B1320]">
 
-<div class="max-w-6xl mb-4 mx-auto px-6">
+<div class="max-w-6xl mx-auto px-6">
 
 <!-- NÚMEROS -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-16">
@@ -139,6 +190,8 @@ to{box-shadow:0 0 20px #4DB8FF}
 <!-- POR QUE ESCOLHER -->
 <div class="text-center mb-12">
 
+<span class="inline-block text-xs tracking-[0.2em] font-semibold text-[#4DB8FF] uppercase mb-3">// Nossos diferenciais</span>
+
 <h2 class="text-2xl md:text-3xl font-bold">
 Por que escolher a Fluxxo Soluções?
 </h2>
@@ -147,7 +200,11 @@ Por que escolher a Fluxxo Soluções?
 
 <div class="grid md:grid-cols-3 gap-8 text-center mb-16">
 
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up">
+<div class="tech-card p-8 rounded-xl transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up">
+
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-headset text-xl"></i>
+</div>
 
 <h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
 Atendimento Direto
@@ -159,7 +216,11 @@ Sem intermediários. Você fala direto com quem vai desenvolver e entregar sua s
 
 </div>
 
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="200">
+<div class="tech-card p-8 rounded-xl transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up" data-aos-delay="200">
+
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-sliders text-xl"></i>
+</div>
 
 <h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
 100% Personalizado
@@ -171,7 +232,11 @@ Nada engessado. Cada solução é criada pensando nas necessidades reais do seu 
 
 </div>
 
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition" data-aos="fade-up" data-aos-delay="400">
+<div class="tech-card p-8 rounded-xl transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up" data-aos-delay="400">
+
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-bolt text-xl"></i>
+</div>
 
 <h3 class="text-[#4DB8FF] text-xl font-semibold mb-4">
 Entrega Rápida
@@ -186,33 +251,60 @@ Começamos rápido e você ainda conta com suporte depois da entrega do projeto.
 </div>
 
 <!-- SERVIÇOS RESUMO -->
-<div class="grid gap-10 md:grid-cols-3 text-center">
+<div class="grid gap-8 md:grid-cols-3 text-left">
 
-<div data-aos="fade-up">
-<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
-Planilhas Inteligentes
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-code text-lg"></i>
+</div>
+<span class="tag-pill text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full">Sob Medida</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-4">
+Sistemas Personalizados
 </h3>
-<p class="text-gray-300 text-sm md:text-base">
-Automação e controle profissional.
-</p>
+<ul class="text-gray-300 text-sm md:text-base space-y-3">
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#4DB8FF] mt-1 text-xs"></i>Flexibilidade total para o seu processo</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#4DB8FF] mt-1 text-xs"></i>Escalabilidade conforme sua empresa cresce</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#4DB8FF] mt-1 text-xs"></i>Integração com APIs e outras ferramentas</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#4DB8FF] mt-1 text-xs"></i>Segurança pensada desde o início</li>
+</ul>
 </div>
 
-<div data-aos="fade-up" data-aos-delay="200">
-<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
-Sites Personalizados
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#A78BFA" data-aos="fade-up" data-aos-delay="200">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-cloud text-lg"></i>
+</div>
+<span class="tag-pill text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full">SaaS</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-4">
+Sistemas Padrão
 </h3>
-<p class="text-gray-300 text-sm md:text-base">
-Design moderno e responsivo.
-</p>
+<ul class="text-gray-300 text-sm md:text-base space-y-3">
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#A78BFA] mt-1 text-xs"></i>Módulos prontos para diferentes necessidades</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#A78BFA] mt-1 text-xs"></i>Implementação imediata, sem espera</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#A78BFA] mt-1 text-xs"></i>Ótimo custo-benefício</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#A78BFA] mt-1 text-xs"></i>Ideal para quem quer começar rápido</li>
+</ul>
 </div>
 
-<div data-aos="fade-up" data-aos-delay="400">
-<h3 class="text-[#4DB8FF] text-lg md:text-xl font-semibold mb-3">
-Manutenção e Instalação
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#2DD4BF" data-aos="fade-up" data-aos-delay="400">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-globe text-lg"></i>
+</div>
+<span class="tag-pill text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full">Web</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-4">
+Criação de Sites
 </h3>
-<p class="text-gray-300 text-sm md:text-base">
-Formatação e otimização completa.
-</p>
+<ul class="text-gray-300 text-sm md:text-base space-y-3">
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#2DD4BF] mt-1 text-xs"></i>Design premium e moderno</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#2DD4BF] mt-1 text-xs"></i>Responsivo, com foco mobile first</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#2DD4BF] mt-1 text-xs"></i>Otimização para SEO</li>
+<li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#2DD4BF] mt-1 text-xs"></i>Velocidade de carregamento otimizada</li>
+</ul>
 </div>
 
 </div>
@@ -225,69 +317,233 @@ Mais do que entregar tecnologia, queremos caminhar junto com você e ajudar o se
 
 </section>
 
-<!-- DICAS / DOWNLOAD PLANILHA -->
-<section class="min-h-screen flex items-center pb-24 pt-20 max-w-6xl mx-auto px-6">
+<!-- SOBRE A FLUXXO -->
+<section class="relative overflow-hidden py-24 px-6 bg-[#0B1320]">
 
-<div class="w-full">
+<div class="circuit-bg absolute inset-0 opacity-60"></div>
 
-<div class="text-center mb-12">
-<h2 class="text-2xl md:text-3xl font-bold">
-Baixe uma Planilha Gratuita de Controle Financeiro
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-[#4DB8FF]/10 blur-3xl"></div>
+
+<div class="relative max-w-6xl mx-auto">
+
+<!-- CABEÇALHO / HISTÓRIA -->
+<div class="max-w-3xl mx-auto text-center mb-16">
+
+<img src="./img/logo.svg"
+     class="h-20 md:h-28 mx-auto mb-8 drop-shadow-[0_0_35px_rgba(77,184,255,0.55)]"
+     data-aos="zoom-in">
+
+<span class="inline-block text-xs tracking-[0.2em] font-semibold text-[#4DB8FF] uppercase mb-4" data-aos="fade-up">
+// Sobre nós
+</span>
+
+<h2 class="text-2xl md:text-4xl font-bold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+De onde viemos
 </h2>
-<p class="text-gray-300 mt-4 max-w-2xl mx-auto text-sm md:text-base">
-Organize as finanças da sua empresa e tenha mais clareza sobre lucros, despesas e resultados.
-</p>
-</div>
 
-<div class="grid gap-8 md:grid-cols-3">
-
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
-<i class="fas fa-chart-line text-3xl text-[#4DB8FF] mb-4"></i>
-
-<h3 class="text-lg md:text-xl font-semibold mb-4">
-Controle financeiro profissional
-</h3>
-</div>
-
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
-<i class="fas fa-globe text-3xl text-[#4DB8FF] mb-4"></i>
-
-<h3 class="text-lg md:text-xl font-semibold mb-4">
-Seu negócio precisa de um site
-</h3>
-
-<p class="text-gray-300 text-sm">
-Empresas com site profissional passam mais confiança e conseguem atrair novos clientes todos os dias.
-</p>
-</div>
-
-<div class="bg-[#0A2A66] p-8 rounded-xl border border-[#4DB8FF]/20 hover:scale-105 transition">
-<i class="fas fa-laptop text-3xl text-[#4DB8FF] mb-4"></i>
-
-<h3 class="text-lg md:text-xl font-semibold mb-4">
-Computador sempre rápido
-</h3>
-
-<p class="text-gray-300 text-sm">
-Manutenção preventiva evita travamentos, aumenta a vida útil do equipamento e protege seus dados.
-</p>
-</div>
-
-</div>
-
-<div class="text-center mt-12">
-<p class="text-gray-300 text-sm mb-6 max-w-xl mx-auto">
-Baixe uma planilha gratuita para controlar entradas, saídas e visualizar melhor o desempenho do seu negócio.
+<p class="text-gray-300 text-sm md:text-lg mb-4" data-aos="fade-up" data-aos-delay="150">
+A Fluxxo Soluções nasceu da vontade de dois sócios de aproximar empresas de pequeno e médio porte da tecnologia que só as grandes empresas costumavam ter acesso. Vimos negócios perdendo tempo com processos manuais e decidimos criar sistemas simples, diretos e sob medida para resolver isso.
 </p>
 
-<a href="#" class="bg-[#4DB8FF] text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition inline-block">
-Baixar planilha
+<p class="text-gray-300 text-sm md:text-lg" data-aos="fade-up" data-aos-delay="200">
+Desde então, cada projeto entregue reforça o mesmo propósito: usar tecnologia para fazer negócios funcionarem melhor, com uma equipe que acompanha de perto do início ao fim.
+</p>
+
+</div>
+
+<!-- NOSSOS VALORES -->
+<div class="text-center mb-12">
+<span class="inline-block text-xs tracking-[0.2em] font-semibold text-[#4DB8FF] uppercase mb-3">// O que nos guia</span>
+<h3 class="text-2xl md:text-3xl font-bold">Nossos valores</h3>
+</div>
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+<div class="tech-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up">
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-handshake text-xl"></i>
+</div>
+<h4 class="text-white text-lg font-semibold mb-3">Transparência</h4>
+<p class="text-gray-300 text-sm">Comunicação clara em cada etapa, sem letras miúdas nem promessas vazias.</p>
+</div>
+
+<div class="tech-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1" style="--accent:#2DD4BF" data-aos="fade-up" data-aos-delay="100">
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-user-group text-xl"></i>
+</div>
+<h4 class="text-white text-lg font-semibold mb-3">Proximidade</h4>
+<p class="text-gray-300 text-sm">Sem intermediários: você fala direto com quem constrói a sua solução.</p>
+</div>
+
+<div class="tech-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1" style="--accent:#FBBF24" data-aos="fade-up" data-aos-delay="200">
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-lightbulb text-xl"></i>
+</div>
+<h4 class="text-white text-lg font-semibold mb-3">Inovação</h4>
+<p class="text-gray-300 text-sm">Buscamos sempre a forma mais simples e moderna de resolver um problema real.</p>
+</div>
+
+<div class="tech-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1" style="--accent:#A78BFA" data-aos="fade-up" data-aos-delay="300">
+<div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+<i class="fa-solid fa-seedling text-xl"></i>
+</div>
+<h4 class="text-white text-lg font-semibold mb-3">Compromisso com o crescimento</h4>
+<p class="text-gray-300 text-sm">Seu sucesso é o nosso indicador: caminhamos junto antes, durante e depois da entrega.</p>
+</div>
+
+</div>
+
+<div class="text-center mt-14">
+<a href="sobre.html"
+   class="inline-flex items-center gap-2 text-[#4DB8FF] text-sm font-semibold group">
+Conheça nossa história completa <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
 </a>
 </div>
 
 </div>
 
 </section>
+
+<!-- NOSSOS SISTEMAS -->
+<section class="circuit-bg py-20 bg-[#0B1320]">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="text-center mb-14">
+<span class="inline-block text-xs tracking-[0.2em] font-semibold text-[#4DB8FF] uppercase mb-3">// Produtos Fluxxo</span>
+<h2 class="text-2xl md:text-3xl font-bold">
+Nossos Sistemas
+</h2>
+<p class="text-gray-300 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+Uma linha completa de sistemas próprios, prontos para automatizar diferentes áreas do seu negócio.
+</p>
+</div>
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#4DB8FF" data-aos="fade-up">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-door-open text-lg"></i>
+</div>
+<span class="flex items-center gap-2 text-[10px] tracking-widest font-semibold uppercase text-gray-400">
+<span class="w-2 h-2 rounded-full bg-[#4DB8FF] neon-pulse"></span>Online
+</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-1">
+Portflexx
+</h3>
+<p class="tag-pill inline-block text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full mb-4">Portaria</p>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Controle de portaria comercial, industrial e residencial, com registro de visitantes e acessos em tempo real.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 text-[#4DB8FF] text-sm font-semibold group">
+Saiba mais <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#2DD4BF" data-aos="fade-up" data-aos-delay="100">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-boxes-stacked text-lg"></i>
+</div>
+<span class="flex items-center gap-2 text-[10px] tracking-widest font-semibold uppercase text-gray-400">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] neon-pulse"></span>Online
+</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-1">
+Controlflexx
+</h3>
+<p class="tag-pill inline-block text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full mb-4" style="--accent:#2DD4BF">Estoque</p>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Controle de estoque e linha de produção, com rastreamento em tempo real e relatórios automáticos.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 text-[#2DD4BF] text-sm font-semibold group">
+Saiba mais <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#FBBF24" data-aos="fade-up" data-aos-delay="200">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-hard-hat text-lg"></i>
+</div>
+<span class="flex items-center gap-2 text-[10px] tracking-widest font-semibold uppercase text-gray-400">
+<span class="w-2 h-2 rounded-full bg-[#FBBF24] neon-pulse"></span>Online
+</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-1">
+Nexxora
+</h3>
+<p class="tag-pill inline-block text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full mb-4" style="--accent:#FBBF24">EPI</p>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Controle de EPI com histórico de entregas, validade e conformidade com normas de segurança.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 text-[#FBBF24] text-sm font-semibold group">
+Saiba mais <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#34D399" data-aos="fade-up" data-aos-delay="300">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-file-invoice-dollar text-lg"></i>
+</div>
+<span class="flex items-center gap-2 text-[10px] tracking-widest font-semibold uppercase text-gray-400">
+<span class="w-2 h-2 rounded-full bg-[#34D399] neon-pulse"></span>Online
+</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-1">
+Borderflexx
+</h3>
+<p class="tag-pill inline-block text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full mb-4" style="--accent:#34D399">Financeiro</p>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Controle financeiro e borderôs, com fluxo de caixa organizado e conciliação simplificada.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 text-[#34D399] text-sm font-semibold group">
+Saiba mais <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1" style="--accent:#A78BFA" data-aos="fade-up" data-aos-delay="400">
+<div class="flex items-center justify-between mb-5">
+<div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-comments text-lg"></i>
+</div>
+<span class="flex items-center gap-2 text-[10px] tracking-widest font-semibold uppercase text-gray-400">
+<span class="w-2 h-2 rounded-full bg-[#A78BFA] neon-pulse"></span>Online
+</span>
+</div>
+<h3 class="text-white text-lg md:text-xl font-semibold mb-1">
+Chatflexx
+</h3>
+<p class="tag-pill inline-block text-[10px] tracking-widest font-semibold uppercase px-2 py-1 rounded-full mb-4" style="--accent:#A78BFA">Chatbot</p>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Chatbot inteligente para atendimento automático, qualificação de leads e suporte 24/7.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 text-[#A78BFA] text-sm font-semibold group">
+Saiba mais <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+
+<div class="tech-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col items-start justify-center" style="--accent:#4DB8FF" data-aos="fade-up" data-aos-delay="500">
+<h3 class="text-white text-lg md:text-xl font-semibold mb-2">
+Precisa de um sistema sob medida?
+</h3>
+<p class="text-gray-300 text-sm md:text-base mb-5">
+Desenvolvemos soluções personalizadas para necessidades que vão além dos nossos sistemas prontos.
+</p>
+<a href="servicos.html" class="inline-flex items-center gap-2 bg-[#4DB8FF] text-black px-5 py-3 rounded-lg font-semibold hover:scale-105 transition text-sm">
+Falar com a Fluxxo <i class="fa-solid fa-arrow-right text-xs"></i>
+</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <!-- BOTÃO REDES -->
 <div class="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 flex flex-col items-center">
 
@@ -308,7 +564,7 @@ class="flex flex-col items-center space-y-3 mb-4 opacity-0 translate-y-5 pointer
 </div>
 
 <button onclick="toggleSocial()"
-class="bg-white w-14 h-14 md:w-16 md:h-16 rounded-full neon-glow neon-pulse flex items-center justify-center">
+class="bg-[#061224] w-14 h-14 md:w-16 md:h-16 rounded-full neon-glow neon-pulse flex items-center justify-center">
 
 <img id="mainIcon" src="./img/logo.svg" class="h-8 md:h-10">
 
@@ -384,8 +640,6 @@ Atendimento online para todo o Brasil
 </div>
 
 </footer>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script>
 
